@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.CSBoardDAO">
+	<insert id="insert">
+		insert into cs(cs_email, cs_nick_name, cs_title, cs_content, cs_category)
+		values(#{csEmail}, #{csNickName}, #{csTitle}, #{csContent}, #{csCategory})
+	</insert>
+	
+	<select id="getFlistBno" resultType="long">
+		select max(cs_bno) from cs
+	</select>
+	
+	<select id="getList" resultType="com.avo.www.domain.CSBoardVO">
+		select * from cs 
+		where cs_email = #{csEmail}
+		order by cs_bno desc
+	</select>
+	
+	<select id="getDetail" resultType="com.avo.www.domain.CSBoardVO">
+		select * from cs where cs_bno = #{csBno}
+	</select>
+	
+	<update id="updateIsAns">
+		update cs set cs_is_ans = 'Y' where cs_bno = #{csBno}
+	</update>
+	
+	<!-- 관리자 리스트 -->
+	<select id="getNoAnsList" resultType="com.avo.www.domain.CSBoardVO">
+		select * from cs where cs_is_ans = 'N'
+		order by cs_bno desc
+	</select>
+	<select id="getMenuList" resultType="com.avo.www.domain.CSBoardVO">
+		select * from cs where cs_is_ans = 'N' and cs_category = #{csCategory}
+		order by cs_bno desc
+	</select>
+</mapper>

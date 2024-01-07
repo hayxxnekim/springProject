@@ -1,0 +1,356 @@
+.innerContainer{
+	width: 700px;
+	margin: 50px auto;
+}
+.innerContainer i{
+    color: #85a331;
+}
+
+#map {
+	width: 100%;
+	height: 300px;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+#attention {
+	color: lightcoral;
+    font-size: 15px;
+}
+
+/* floatMenu start */
+.floatMenu{
+    position: fixed;
+    z-index: 100;
+    top: 20%;
+    right: 5%;
+    padding: 20px 0;
+    width: 80px;
+    height: 180px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    display: flex;q
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'suit';
+}
+.floatMenu p {
+	font-size: 12px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.floatMenu i {
+	font-size: 20px;
+}
+
+    /* 글씨는font-size: 12px; */
+/*     i는 20pxfont-size: 20px; */
+/* floatMenu end */
+.cntArea {
+	border-bottom: 1px solid #efefef;
+	padding-bottom: 20px;
+}    
+.cntArea p {
+    position: relative;
+    margin-bottom: 0;
+    display: inline-block;
+    font-size: 14px;
+    color: #606060;
+    letter-spacing: -0.2px;
+}    
+.cntArea p:nth-child(2)::after {
+    content: "|";
+    margin: 0 5px;
+    color: #a1a1a1;
+}
+
+.lastBtnArea{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0px;
+}
+.lastBtnArea a:first-child{
+    margin-right: 25px;
+}
+.lastBtnArea button{
+    background-color: #fff;
+    font-size: 16px;
+    width: 100px;
+    height: 55px;
+    border-radius: 28px;
+}
+.lastBtnArea button[type=submit]:hover{
+    background-color: #84a331;
+    color: #fff;
+    transition: 0.2s;
+}
+.lastBtnArea .jobDelBtn:hover{
+    background-color: #aaa;
+    color: #fff;
+    transition: 0.2s;
+}
+.lastBtnArea button[type=submit]{
+    border: 2px solid #84a331;
+    color: #84a331;
+}
+.lastBtnArea .jobDelBtn{
+    border: 2px solid #aaa;
+    color: #aaa;
+}
+.lastBtnArea button:disabled,
+.lastBtnArea button:disabled:hover{
+    background-color: #a43131;
+    border-color: #a43131;
+    color: #fff;
+}
+.jobInfoDetail textarea {
+	width: 100%;
+    border: 0;
+    resize: none;
+}
+.jobInfoDetail textarea:focus{
+    outline: 0;
+}
+
+.jobBtn {
+	margin-top:50px;
+	width: 40px;
+	height: 30px;
+	font-size: 12px;
+	border-radius: 10px;
+	margin: 2px;
+	color: #84a331;
+	background: #fff;
+	border: 2px solid #84a331;
+}
+
+
+.jobBtn-light {
+	width: 35px;
+    height: 30px;
+    font-size: 12px;
+    color: #000;
+    background: #f8ffa;
+    border: 1px solid #f8f9fa;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+.jobBtn-light:hover {
+	color: #000;
+    background: #d3d4d5;
+    border: 1px solid #c6c7c8;
+	
+} 
+#rePostBtn {
+	width: 60px;
+	height: 48px;
+	top: -2px;
+    position: relative;
+}
+#rePostBtn:disabled {
+	border: 2px solid indianred;
+	color: indianred;
+}
+#rePostBtn:disabled:hover {
+	border: 2px solid indianred;
+	color: #fff;
+	background: indianred
+}
+.moreBtnArea {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: end;
+    margin: 0px 0px 100px;
+}
+.moreBtn {
+    font-size: 16px;
+    width: 120px;
+    height: 50px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: url(../image/down_arrow.png) no-repeat 80% 50% / 10px auto;
+    box-shadow: 0 0 5px rgba(110, 110, 110, 0.2);
+    transition: 0.2s;
+    margin: 40px 0px 20px 0px;
+}
+.moreBtn:hover {
+    background-color: #eee;
+}
+
+.jobBtn:hover, #rePostBtn:hover {
+	background: #84a331;
+	border: none;
+	color: #fff;
+	transition: color 0.3s, background 0.2s;
+}
+
+/* 작성자 */
+.profileSecction {
+	padding: 27px 10px 10px 10px;
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	
+}
+.userInfo {
+	display: flex;
+	justify-content: space-between;
+}
+.userInfo span {
+	font-size: 13px;
+	margin-left: 10px;
+}
+.userInfo span strong {
+	font-size: 16px;
+}
+
+/* 본문 */
+.jobTitleSecction h1 {
+	margin: 30px 0px 20px 0px;
+	font-size: 24px;
+}
+.jobTitleSecction span {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #85a331;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.bi-heart, .bi-clipboard {
+	color: #d3d3d3;
+}
+.bi-thermometer-half, .bi-heart-fill {
+	color: #a33131;
+}
+/* 리뷰 */
+.rePost, .reWriterInfo {
+	display: flex;
+    align-items: center;
+}
+.rePost span, .reWriterInfo span{
+	margin: 10px;
+}
+
+.frofileImg {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%; 
+	border: 1px solid #d3d3d3;
+    display: block;
+	overflow: hidden;
+	
+}
+.container {
+    background: #fafafa;
+    border-top: 1px solid lightgray;
+    padding-top: 20px;
+    margin-bottom: 80px;
+}
+.list-group .list-group-item {
+    background: none;
+}
+
+	
+/* 리뷰 별점 */
+#reContent {
+	border: 2px solid lightgray;
+	border-radius:10px;
+	width: 500px;
+	padding: 10px; 
+	
+}
+/* 수정 인풋창 */
+.reContent:not([readonly="readonly"]) {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+    width: 372px;
+}
+
+	
+
+    #carouselExampleIndicators {
+        margin-top: 50px;
+    }
+
+    .carousel-inner img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+	i:hover {
+		cursor: pointer;
+	}
+	.reProfile{
+		width: 80px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-right: 10px;
+	}
+	/* 별점평가 부분 */
+	.myform fieldset, .myStar fieldset, .myformMini fieldset {
+    display: inline-block;
+    direction: rtl;
+	}
+
+	.myform input[type=radio], .myStar input[type=radio], .myformMini input[type=radio] {
+	    display: none;
+	}
+	.myform label, .myStar label, .myformMini label {
+	    font-size: 30px;
+	    color: transparent;
+	    text-shadow: 0 0 0 #f0f0f0;
+	}
+	.myform label:hover {
+	    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+	}
+	.myform label:hover ~ label {
+	    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+	}
+	.myform input[type=radio]:checked ~ label, .myStar input[type=radio]:checked ~ label, .myformMini  input[type=radio]:checked ~ label{
+	    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+	}
+	
+	label[for^="starFill"]{
+		color: rgba(250, 208, 0, 0.99);
+	}
+	
+	label[for^="starEmpty"]{
+		color: #f0f0f0;
+	}
+	.myformMini label:hover{
+	text-shadow: ;
+		
+	}
+
+	.myformMini label{
+		font-size: 20px;
+	}
+	
+	.myformMini input {
+		border: none;
+		width: 390px;
+		background: none;
+	}
+	
+
+#reListArea {
+	width: 90%;
+    margin: 2% auto;
+}
+

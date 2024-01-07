@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.JobReviewDAO">
+	
+  	<insert id="postReview">
+  		insert into review(re_bno,receiver_email,sender_email,re_content,re_score,re_category, re_sender_nick )
+  		values(#{reBno},#{receiverEmail},#{senderEmail},#{reContent},#{reScore},#{reCategory}, #{reSenderNick})
+
+  	</insert>
+  	<!-- 채팅 후기 입력 -->
+  	<insert id="insertReview">
+  		insert into review(receiver_email, sender_email, re_content, re_score, re_category, re_bno, re_sender_nick)
+  		values(#{receiverEmail}, #{senderEmail}, #{reContent}, #{reScore}, #{reCategory}, #{reBno}, #{reSenderNick})
+
+  	</insert>
+  	<select id="selectOntBnoTotalCount" resultType="int">
+  		select count(re_rno) from review where re_bno = #{reBno}
+  	</select>
+  	<select id="selectListPaging" resultType="com.avo.www.domain.ReviewVO">
+  		select * from review where re_bno = #{reBno}
+  		order by re_rno desc
+  		limit #{pgvo.pageStart}, #{pgvo.qty}
+  	</select>
+  	<delete id="delete">
+  		delete from review where re_rno = #{reRno}
+  	</delete>
+  	<update id="modify">
+  		update review set re_content=#{reContent}, re_score=#{reScore}, reg_at=now() where re_rno=#{reRno}
+  	</update>
+  	
+  	<select id="getLastBno" resultType="int">
+  		select max(re_bno) from review
+  	</select>
+
+	<update id="setTempForReview">
+		update review set
+		<include refid="setTemp" />
+		where re_bno = #{bno}
+	</update>
+
+	<sql id="setTemp">
+		<if test="temp == 1">
+			re_temp = re_temp - 0.2
+		</if>
+		<if test="temp == 2">
+			re_temp = re_temp - 0.1
+		</if>
+		<if test="temp == 3">
+			re_temp = re_temp + 0
+		</if>
+		<if test="temp == 4">
+			re_temp = re_temp + 0.1
+		</if>
+		<if test="temp == 5">
+			re_temp = re_temp + 0.2
+		</if>
+	</sql>
+</mapper>

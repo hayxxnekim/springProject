@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.StoreMenuDAO">
+	<insert id="insertMenu">
+  		insert into store_menu(str_bno, str_menu, str_price, str_explain )
+  		values(#{strBno},#{strMenu}, #{strPrice}, #{strExplain})
+  	</insert>
+  	<select id="getMenuList" resultType="com.avo.www.domain.StoreMenuVO">
+  		select * from store_menu where str_bno = #{bno} order by str_menu_id asc;
+  	</select>
+  	<delete id="removeMenu">
+  		delete from store_menu where str_menu_id = #{id}
+  	</delete>
+  	<delete id="removeMenuAll">
+  		delete from store_menu where str_bno = #{bno}
+  	</delete>
+</mapper>

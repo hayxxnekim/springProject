@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}	
+
+.bodyContainer{
+    font-family: 'SUIT-Regular';
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 젤 위에 라인 */
+.topLine{
+    margin-top: 90px;
+    width: 700px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+}
+.pageName{
+    font-size: 23px;	    
+    font-weight: 800;
+}
+.topLine span{
+    font-size: 14px;
+}
+
+/* 카테고리 라인 */
+.faqCategory{
+    margin: 30px 0;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.category{
+    text-decoration: none;
+    color: #909090;
+    border: 1px solid #d3d3d3;
+    border-radius: 100px;
+    padding: 5px 10px;
+    margin: 0 10px;
+    font-size: 15px;
+}
+.category:hover{
+    background-color: #d3d3d3;
+}
+.faqActive{
+    background-color: #d3d3d3;
+    color: white;
+}
+
+/* faq 게시글 라인 */
+.faqBoardLine{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+.faqBoards{
+    margin: 0;
+    padding: 0;
+    width: 700px;
+    font-size: 0;
+}
+.faqLi{
+    font-size: 14px;
+}
+.questionBtn{
+    width: 700px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    padding: 16px 20px;
+    align-items: center;
+    background: none;
+}
+.qLeft p{
+    margin: 0;
+}
+.qTitle{
+    font-size: 14px;
+    text-align: left;
+}
+.qCategory{
+    font-size: 13px;
+    text-align: left;
+    color: gray;
+}
+/* 답변 */
+.answerDiv{
+    width: 100%;
+    background-color: #f1f4f6;
+}
+.answerArea{
+    width: 100%;
+    background: none;
+    resize: none;
+    border: none;
+    padding: 20px 20px 0 20px;
+    font-size: 14px;
+}
+.answerArea:focus{
+    outline: none;
+}
+.modDelDiv{
+    width: 100%;
+    text-align: right;
+    padding: 0 20px 20px 0;
+}
+.modDelDiv a{
+    text-decoration: none;
+}
+.modDelDiv button{
+    border: none;
+    background: none;
+    margin-left: 5px;
+}
+.modDelDiv button:hover{
+    font-weight: 800;
+}
+
+/* 검색 결과 없을 때 */
+.noBoard{
+    font-size: 17px;
+    text-align: center;
+    height: 300px;
+    line-height: 300px;
+}
+
+/* 버튼라인 */
+.csButtons{
+    margin: 30px 0 100px 0;
+    width: 700px;
+}
+.csButtons a{
+    width: 100%;
+}
+.csBtn1{
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    background-color: #5d5d5d;
+    color: white;
+}

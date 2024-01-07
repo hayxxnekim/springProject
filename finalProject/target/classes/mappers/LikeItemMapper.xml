@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.LikeItemDAO">
+	<select id="selectAllLikeCnt" resultType="int">
+		select count(li_like_id) from product_like where li_bno = #{liBno} AND li_status = 1
+	</select>
+	<select id="checkLikeTF" resultType="int">
+		select count(li_like_id) from product_like where li_user_id = #{liUserId} AND li_bno = #{liBno} AND li_status = 1
+	</select>
+	<select id="checkLikeCnt" resultType="int">
+		select count(li_like_id) from product_like where li_user_id = #{liUserId} AND li_bno = #{liBno}
+	</select>
+	<insert id="insertLike">
+		Insert into product_like (li_user_id, li_bno, li_status)
+		value (#{liUserId},#{liBno},#{liStatus})
+	</insert>
+	<update id="updateLike">
+		update product_like set li_status = #{liStatus}, li_reg_at = now()
+		where li_user_id = #{liUserId} AND li_bno = #{liBno}
+	</update>
+	<delete id="deleteAllLike">
+		delete from product_like where li_bno = #{bno}
+	</delete>
+</mapper>

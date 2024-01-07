@@ -1,0 +1,166 @@
+@import url(../css/joongoBoard.css);
+/* info start */
+/* info list start */
+.infoContainer{
+    font-family: 'suit';
+    width: 700px;
+    margin: 70px auto 100px;
+    color: #333;
+}
+.infoContainer > h2{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 60px;
+    border-bottom: 1px solid #333;
+    margin: 0;
+    text-align: center;
+}
+.infoContainer .headerSection{
+    background-color: #f1f4f6;
+    border-bottom: 1px solid #ebebeb;
+    height: 60px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+.infoContainer .headerSection p{
+    margin: 0;
+    font-size: 14px;
+}
+.infoContainer .headerSection p:first-child{
+    width: 80%;
+}
+.infoContainer .headerSection p:last-child{
+    width: 20%;
+}
+.infoContainer > p{
+    height: 70px;
+    line-height: 70px;
+    padding: 0 15px;
+    border-bottom: 1px solid #ddd;
+}
+.infoListUl{
+    padding: 0;
+    margin: 0;
+}
+.infoListUl li{
+    border-bottom: 1px solid #ddd;
+    height: 70px;
+}
+.infoListUl li a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    height: inherit;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.infoListUl li a p{
+    display: inline-block;
+    margin: 0;
+    width: 80%;
+    font-weight: 600;
+}
+.infoListUl li a small{
+    font-size: 12px;
+    display: inline-block;
+    font-weight: 300;
+    width: 20%;
+    text-align: center;
+}
+/* info list end */
+/* info register start */
+.infoContainer form > input{
+	width: 100%;
+	height: 48px;	
+	padding: 10px 15px;
+	border-radius: 5px;
+	border: solid 1px #e5e5e5;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.infoContainer textarea{
+	width: 100%;
+    padding: 15px;
+	border-radius: 5px;
+    resize: none;
+	border: solid 1px #e5e5e5;
+    font-size: 14px;
+}
+.infoContainer input{
+    width: 100%;
+}
+.infoContainer textarea:focus{
+    outline: 0;
+}
+#infoRegiBtnDiv{
+    margin-top: 40px;
+}
+.regBtn:disabled{
+    border: 2px solid indianred;
+    color: indianred;
+}
+/* info register end */
+/* info detail start */
+.infoHeader{
+    font-weight: 'suit';
+    border-bottom: 1px solid #ebebeb;
+    padding: 20px 10px;
+}
+.infoHeader h3{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.infoHeader span{
+    font-size: 12px;
+}
+.infoContent{
+    font-size: 0;
+}
+.infoContent textarea:read-only{
+    font-size: 14px;
+    border: 0;
+    background-color: #f1f4f6;
+}
+.infoList{
+    font-weight: 'suit';
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.infoList > a:first-child{
+    border-bottom: 1px solid #ededed;
+}
+.infoList > a{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+.infoList > a p{
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 0;
+    position: relative;
+}
+.infoList > a p::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    width: 1px;
+    height: 5px;
+    background-color: #888;
+}
+
+/* info detail end */
+/* info end */

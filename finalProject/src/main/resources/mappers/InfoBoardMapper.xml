@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.InfoBoardDAO">
+	<insert id="insertInfo">
+		insert into info (info_user_id, info_title, info_content)
+		values (#{infoUserId},#{infoTitle},#{infoContent})
+	</insert>
+	<select id="getAllInfo" resultType="com.avo.www.domain.InfoBoardVO">
+		select * from info order by info_bno desc
+	</select>
+	<select id="selectInfo" resultType="com.avo.www.domain.InfoBoardVO">
+		select * from info where info_bno = #{bno} 
+	</select>
+	<select id="selectPrevInfo" resultType="com.avo.www.domain.InfoBoardVO">
+		select * from info
+		where info_bno = (select max(info_bno) from info where info_bno <![CDATA[<]]> #{bno})
+	</select>
+	<select id="selectNextInfo" resultType="com.avo.www.domain.InfoBoardVO">
+		select * from info
+		where info_bno = (select min(info_bno) from info where info_bno <![CDATA[>]]> #{bno})
+	</select>
+</mapper>

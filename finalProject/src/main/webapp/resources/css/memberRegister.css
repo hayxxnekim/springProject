@@ -1,0 +1,159 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bodyContainer{
+    display: flex;
+    justify-content: center;
+    padding: 90px 0 120px 0;
+}
+
+form{
+    width: 400px;
+}
+.siteTitle{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    display: block;
+    color: #323f11;
+    font-family: 'SUIT-Regular';
+    margin-bottom: 50px;
+}
+
+.labels{
+    display: block;
+    font-weight: 800;
+    /* margin-bottom: 7px; */
+    font-family: 'SUIT-Regular';
+    color: #323f11;
+    font-size: 15px;
+}
+.inputDiv1{
+    height: 160px;
+}
+.inputDiv{
+    height: 115px;
+}
+.inputs{
+    width: 400px;
+    height: 40px;
+    padding-left: 3px;
+    border: none;
+    border-bottom: 1px solid #d7d7d7;
+    /* border-radius: 5px; */
+    font-family: 'SUIT-Regular';
+    font-size: 14px;
+}
+.inputs::placeholder{
+    font-family: 'SUIT-Regular';
+    color: #cdcdcd;
+}
+.inputs:focus{
+    border-bottom: 2px solid #323f11;
+}
+/* 이메일 관련 */
+.emailInput{
+    width: 310px;
+}
+.testBtn{
+    width: 83px;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background-color: #84a331;
+    color: white;
+    font-family: 'SUIT-Regular';
+    font-size: 14px;
+}
+.testBtn:disabled{
+    background-color: #c6d1a8;
+}
+.testInput{
+    margin-top: 10px;
+}
+
+/* 비밀번호 보이게 하는 눈 아이콘 */
+.bi-eye-slash, .bi-eye{
+    cursor: pointer;
+    position : absolute;
+    display: block;
+    margin-left: 367px;
+    margin-top: -32px;
+    color: #323f11;
+}
+
+.msg, .mailTest{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: 'SUIT-Regular';
+    font-weight: 800;
+}
+.msg{
+    color: #f15746;
+}
+.mailTest{
+    color: rgb(71 71 255);
+}
+
+.check_main{
+    display: flex;
+    justify-content: space-between;
+}
+.bi-check-square, .bi-check-square-fill, .bi-plus-lg, .bi-dash-lg{
+    font-size: 24px;
+    color: #84a331;
+    cursor: pointer;
+}
+.checkLabel{
+      display: flex;
+      align-items: center;
+      vertical-align: middle;
+}
+.agreeText{
+    cursor: pointer;
+    font-family: 'SUIT-Regular';
+    font-size: 14px;
+}
+.bi-check-square, .bi-check-square-fill{
+    margin-right: 8px;
+}
+.check, .check2{
+    display: none;
+}
+.check_sub{
+    display: none;
+    margin-left: 40px;
+}
+.openBtn{
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.registerBtn{
+    margin-top: 30px;
+    width: 400px;
+    height: 50px;
+    font-size: 14px;
+    
+    border: none;
+    background-color: #84a331;
+    color: white;
+    border-radius: 5px;
+    font-family: 'SUIT-Regular';
+}
+.registerBtn:disabled {
+    background-color: #c6d1a8;
+    color: white;
+}

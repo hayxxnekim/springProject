@@ -1,0 +1,354 @@
+.bodyContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* 배너 */
+#carouselExample{
+    width: 100%;
+    height: 350px;
+}
+.carousel-inner, .carousel-item, .bannerImgs{
+    width: 100%;
+    height: 100%;
+}
+#bannerPrevBtn{
+    padding-right: 110px;
+}
+#bannerNextBtn{
+    padding-left: 110px;
+}
+/* 중간배너 */
+.secondBanner{
+	margin-top: 100px;
+    width: 100%;
+    height: 350px;
+    background-color: #fffcdb;
+    text-align: center;
+}
+.secondBanner img{
+    width: 1280px;
+    height: 100%;
+}
+
+/* 공통 */
+.boardListLine{
+    width: 100%;
+    margin-top: 110px;
+}
+.ListLineTop{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.ListLineTop p{
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+.ListLineTop a{
+    color: gray;
+    text-decoration: none;
+    font-size: 14px;
+}
+.ListLineMiddle{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-decoration: none;
+}
+.firstM{
+    gap: 0px 28.25px;
+}
+.secondM{
+    gap: 17.25px 17.25px;
+}
+.thirdM{
+    gap: 13.25px 13.25px;
+}
+
+/* 중고거래 라인 */
+.firstJoongoLine{
+    margin-top: 70px;
+}
+.joongo_item{
+    width: 233px;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+}
+.joongo_item a{
+    color: black;
+    text-decoration: none;
+}
+.joongo_item img{
+    width: 100%;
+    height: 233px;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+}
+.joongo_item_detail{
+    padding: 15px;
+}
+.joongo_item_detail p{
+    margin: 0;
+}
+.joongo_item_detail p:nth-child(1){
+    font-size: 14px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+.joongo_item_detail p:nth-child(2){
+    font-size: 18px;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+.joongo_item_detail p:nth-child(3){
+    font-size: 12px;
+    color: gray;
+}
+
+/* 동네업체 라인 */
+.storeListLine{
+    margin-top: 70px;
+}
+.store_item{
+    width: 415px;
+    height: 160px;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+}
+.store_item a{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    color: black;
+    text-decoration: none;
+}
+.store_item_img{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.store_item_img img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    border: none;
+    object-fit: cover;
+}
+.store_item_detail{
+    width: 60%;
+    height: 100%;
+    position: relative;
+    padding: 20px;
+}
+.store_item_detail p{
+    margin: 0;
+}
+.store_item_detail p:nth-child(1){
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.store_item_detail p:nth-child(2){
+    font-size: 14px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+.store_item_detail p:nth-child(3){
+    font-size: 12px;
+    color: gray;
+    position: absolute;
+       bottom: 30;
+}
+
+/* 알바구인 라인 */
+.jobNcmListTopMargin{
+    margin-top: 100px;
+}
+.job_item_img{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.job_item_img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    object-fit: cover;
+}
+.job_item_detail{
+    width: 60%;
+    height: 100%;
+    position: relative;
+    padding: 20px;
+}
+.job_item_detail p{
+    margin: 0;
+}
+.job_item_detail p:nth-child(1){
+    font-size: 14px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+.job_item_detail p:nth-child(2){
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+.job_item_detail p:nth-child(3){
+    font-size: 12px;
+    color: gray;
+    position: absolute;
+       bottom: 30;
+}
+
+
+/* 동네소식 라인 */
+.community_list{
+    width: 310px;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    padding: 15px;
+}
+.community_list a{
+    color: black;
+    text-decoration: none;
+}
+.cm_first{
+    margin-bottom: 5px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.cm_first span{
+    color: green;
+    font-size: 14px;
+    margin-right: 5px;
+}
+.cm_first p{
+    display: inline;
+    font-size: 14px;
+}
+.cm_second{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 13px;
+    color: gray;
+}
+.cm_second span:not(:nth-child(5)) {
+    margin-right: 7px;
+}
+.cm_second i{
+    font-size: 12px;
+    margin-right: 4px;
+}
+.cmLikeListLine{
+    margin-bottom: 130px;
+    margin-top: 70px;
+}
+
+/* 앱스토어 배너 */
+.appStoreLine{
+    width: 100%;
+    height: 400px;
+    background-color: #d5efd4;
+    font-family: 'suit';
+    display: flex;
+    justify-content: center;
+}
+.appStoreInner{
+    width: 1280px;
+    background-image: url(../image/앱배너.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+.appStoreInner p:nth-child(1) {
+    font-size: 35px;
+    font-weight: 800;
+}
+.appStoreInner p:nth-child(2) {
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+.appBtns{
+    margin: 275px 165px;
+}
+.appBtns a{
+    text-decoration: none;
+}
+.appStoreInner button{
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #bee7bd;
+    color: #2b4d31;
+}
+
+
+/* 중고 카테고리 버튼 */
+.joongoMenuMiddle{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-decoration: none;
+}
+.joongoMenuBtn{
+    width: 245px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+}
+.joongoMenuBtn img{
+    height: 50%;
+    object-fit: cover;
+}
+.joongoMenuBox p{
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+}
+#sofa{
+    height: 45%;
+}
+#sunglasses{
+    height: 30%;
+}
+#mac{
+    height: 60%;
+}
+#macc{
+    height: 45%;
+}
+#snack{
+    height: 58%;
+}
+.bi-three-dots{
+    font-size: 20px;
+}

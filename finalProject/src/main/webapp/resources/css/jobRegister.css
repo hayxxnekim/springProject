@@ -1,0 +1,200 @@
+#trigger:hover {
+    transition: 0.2s;
+	color: #fff;
+    background: #aaacae;
+} 
+
+
+.bodyContainer{
+    display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.form-control {
+	resize: none;
+}
+.imgLine{
+	width: 100%;
+	min-width: 1280px;
+    height: 350px;
+    background-color: #f9ffd1;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.formLine{
+	margin: 40px 0;
+	width: 650px;
+}
+
+.form{
+	margin-bottom: 40px;
+}
+
+.label{
+	margin-bottom: 15px;
+	font-weight: 800;
+}
+
+.titleInput, .jobMenu, .fileInput{
+	width: 100%;
+	height: 48px;	
+	padding: 10px 15px;
+	border-radius: 5px;
+	border: solid 1px #e5e5e5;
+	font-size: 14px;
+	margin-bottom: 40px
+}
+.cmMenu{
+	cursor: pointer;
+}
+.cmMenu:focus{
+	outline: none;
+}
+.contentInput{
+	width: 100%;
+    padding: 15px;
+	border-radius: 5px;
+    resize: none;
+	overflow:hidden;
+	border: solid 1px #e5e5e5;
+	font-size: 14px;
+}
+.contentInput:focus{
+	outline: none;
+}
+.form-label {
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+.form-select {
+	margin-bottom: 40px
+}
+.form-control {
+	margin-bottom: 40px
+}
+
+/* 파일 */
+.fileForm{
+	display: flex;
+	justify-content: flex-start;
+	margin: 0;
+}
+.fileInput {
+    width: calc(100% - 120px); /* 버튼의 너비를 뺀 나머지만 차지하도록 함 */
+    box-sizing: border-box; /* width와 height에 padding과 border를 포함하도록 함 */
+    margin-right: -4px; /* 인라인 요소의 간격을 없애기 위해 마진을 음수로 설정 */
+	border-radius: 5px 0 0 5px;
+}
+.fileBtn{
+    width: 130px; 
+	height: 48px;
+	border-radius: 0 5px 5px 0;
+	border: none;
+	background-color: #c4c4c4;
+	color: white;
+    display: inline-block;
+	font-size: 14px;
+}
+.fileZone{
+	border-radius: 0 0 5px 5px;
+	border-left: solid 1px #e5e5e5;
+	border-right: solid 1px #e5e5e5;
+	border-bottom: solid 1px #e5e5e5;
+}
+.imageUl{
+	padding: 20px;
+	margin: 0;
+	font-size: 14px;
+}
+.imageLi{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;	
+	align-items: center;
+}
+.last-file{
+	margin: 0;
+}
+.imageCancelBtn{
+	border: none;
+    border-radius: 5px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+    line-height: 30px;
+	background-color: #e5e5e5;
+	color: white;
+}
+.imageCancelBtn:hover{
+	background-color: #84a331;
+}
+.imgOk, .imgNo{
+	width:50px;
+	text-align: center;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 4px 5px;
+    color: white;
+    position: absolute;
+    right: 8%;
+}
+.imgOk{
+	background-color: #84a331;
+}
+.imgNo{
+	background-color: indianred;
+}
+
+/* 취소, 등록 버튼 */
+.cmButtons{
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+}
+.cancelBtn{
+	width: 105px;
+	height: 60px;
+	padding: 18px 35px;
+	font-size: 14px;
+	margin-right: 13px;
+	border-radius: 38px;
+	border: 2px solid #999;
+	background: none;
+	color: #999;
+}
+.cancelBtn:hover{
+	background-color: #999;
+	color: white;
+}
+.regBtn{
+	width: 130px;
+	height: 60px;
+	padding: 18px 33px;
+	font-size: 14px;
+	border-radius: 38px;
+	border: 2px solid #84a331;
+	background: none;
+	color: #84a331;
+}
+.regBtn:hover:not(:disabled){
+	background-color: #84a331;
+	color: white;
+}
+.regBtn:disabled{
+	border: 2px solid indianred;
+	color: indianred;
+}
+/* 수정 css */
+.uploadedImgUl{
+	border-radius: 5px;
+	border: solid 1px #e5e5e5;
+	margin: 0;
+	padding: 20px;
+}
+.imgs{
+	margin-right: 20px;
+}
+ 

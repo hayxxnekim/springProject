@@ -1,0 +1,288 @@
+/* joongo board detail start */
+/* floatMenu start */
+section.floatMenu{
+    position: fixed;
+    z-index: 100;
+    top: 20%;
+    right: 5%;
+    padding: 20px 0;
+    width: 80px;
+    height: 180px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-family: 'suit';
+}
+section.floatMenu button{
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+section.floatMenu button i{
+    display: inline-block;
+    width: 100%;
+    font-size: 20px;
+}
+section.floatMenu button span{
+    font-size: 12px;
+}
+section.floatMenu button i{
+    color: #d3d3d3;
+}
+section.floatMenu button i.bi-heart-fill:not(.no-login){
+    color: #a33131;
+}
+/* floatMenu end */
+.joongoDetailContainer{
+    width: 700px;
+    margin: 70px auto 100px;
+    position: relative;
+    font-family: 'suit';
+}
+.joongoDetailContainer > div{
+    width: 100%;
+}
+.joongoDetailContainer > div:not(:last-child),
+form > div:not(:last-child){
+    margin-bottom: 40px;
+}
+.carousel-inner img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+/* profileArea start */
+.profileArea{
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.profileArea > a > img{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border: 1px solid #d3d3d3;
+    object-fit: cover;
+    border-radius: 25px;
+}
+.profileArea .writerInfo{
+    width: calc(100% - 150px);
+}
+.profileArea .writerInfo p,
+.profileArea .writerInfo b{
+    display: inline-block;
+    height: 25px;
+    width: 100%;
+    margin: 0;
+}
+.profileArea button{
+    align-items: center;
+    border: 1px solid #774f2f;
+    background-color: #fff;
+    color: #774f2f;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+}
+.profileArea button:hover{
+    background-color: #774f2f;
+    color: #fff;
+    transition: 0.2s;
+}
+/* profileArea end */
+/* prodArea start */
+.prodArea{
+    width: 100%;
+    font-family: 'suit';
+    padding-bottom: 30px;
+    border-bottom: 1px solid #efefef;
+}
+.prodArea span{
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #85a331;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.prodArea h3{
+    font-size: 24px;
+}
+.prodArea h2{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.prodArea textarea{
+    width: 100%;
+    border: 0;
+    resize: none;
+}
+.prodArea textarea:focus{
+    outline: 0;
+}
+.prodArea p{
+    position: relative;
+    margin-bottom: 0;
+    display: inline-block;
+    font-size: 14px;
+    color: #606060;
+    letter-spacing: -0.2px;
+}
+.prodArea p:not(:last-child){
+    margin-right: 10px;
+}
+.prodArea p:last-child::after{
+    content: "";
+    position: absolute;
+    top: calc(50% - 4px);
+    left: -5px;
+    width: 1px;
+    height: 8px;
+    background-color: #a1a1a1;
+}
+
+.mapContainer {
+    font-size: inherit;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.bi-geo-alt {
+  font-size: 20px;
+  color: #85a331;
+  top: 0px;
+  position: absolute;
+}
+
+.geoNext {
+	margin-left: 29px;
+}
+
+.roadAdr{
+	color: #606060;
+	font-size: 14px;
+	padding-left: 30px;
+	margin-bottom: 8px;
+}
+
+.zoomIn {
+	position: absolute;
+	top: 65px;
+	left: 15px;
+	z-index: 1;
+	border: 1px solid black;
+	border-bottom: 1px solid #606060;
+} 
+
+.zoomOut {
+	position: absolute;
+	top: 93px;
+	left: 15px;
+	z-index: 1;
+	border: 1px solid black;
+	border-top: none;
+}
+
+/* prodArea end */
+/* proBtnArea start */
+.proBtnArea{
+    display: flex;
+    justify-content: center;
+}
+.proBtnArea a:first-child{
+    margin-right: 25px;
+}
+.proBtnArea button{
+    background-color: #fff;
+    font-size: 16px;
+    width: 100px;
+    height: 60px;
+    border-radius: 28px;
+}
+.proBtnArea button[type=submit]:hover{
+    background-color: #84a331;
+    color: #fff;
+    transition: 0.2s;
+}
+.proBtnArea button[type=button]:hover{
+    background-color: #aaa;
+    color: #fff;
+    transition: 0.2s;
+}
+.proBtnArea button[type=submit]{
+    border: 2px solid #84a331;
+    color: #84a331;
+}
+.proBtnArea button[type=button]{
+    border: 2px solid #aaa;
+    color: #aaa;
+}
+.proBtnArea button:disabled,
+.proBtnArea button:disabled:hover{
+    background-color: #a43131;
+    border-color: #a43131;
+    color: #fff;
+}
+
+.menuContainer{
+	position: relative;
+}
+
+.menuUl{
+	margin: 0;
+	padding: 0;
+}
+
+.menuUl li {
+	margin-bottom: 15px;
+}
+.menuContainer span {
+	display: initial; 
+    padding: initial;
+    background-color: initial;
+    color: initial;
+    font-size: initial;
+    border-radius: initial;
+    margin-right: initial;
+    margin-bottom: initial;
+}
+
+.menu {
+	font-size: 18px;
+}
+
+.forMenuLine{
+    position: absolute;
+    top: 12px;
+    right: 0;
+    border-top: 1px dashed #efefef;
+}
+
+.explain {
+	position: absolute;
+	top: 5px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.price {
+	font-size: 15px;
+	color: #606060;
+}
+
+/* proBtnArea end */
+/* joongo board detail end */

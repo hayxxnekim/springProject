@@ -1,0 +1,161 @@
+--2023-11-15
+
+create table product(
+pro_bno bigint auto_increment,
+pro_email varchar(100) not null,
+pro_nick_name varchar(100) not null,
+pro_title varchar(200) not null,
+pro_content text not null,
+pro_price int,
+pro_category varchar(100),
+pro_menu varchar(100),
+pro_like_cnt int default 0,
+pro_read_cnt int default 0,
+pro_chat_cnt int default 0,
+pro_reg_at datetime default now(),
+pro_mod_at datetime default now(),
+pro_re_at datetime default now(),
+pro_sido varchar(100),
+pro_sigg varchar(100),
+pro_emd varchar(100),
+pro_is_del varchar(10) default 'N',
+pro_file_cnt int default 0,
+primary key(pro_bno));
+
+create table community(
+cm_bno bigint auto_increment,
+cm_email varchar(100) not null,
+cm_nick_name varchar(100) not null,
+cm_title varchar(200) not null,
+cm_content text not null,
+cm_menu varchar(100),
+cm_like_cnt int default 0,
+cm_read_cnt int default 0,
+cm_cmt_cnt int default 0,
+cm_file_cnt int default 0,
+cm_reg_at datetime default now(),
+cm_mod_at datetime default now(),
+cm_sido varchar(100),
+cm_sigg varchar(100),
+cm_emd varchar(100),
+cm_is_del varchar(10) default 'N',
+primary key(cm_bno));
+
+
+--2023-11-20
+create table product_like(
+li_like_id bigint auto_increment,
+li_user_id varchar(100) not null,
+li_bno bigint not null,
+li_reg_at datetime default now(),
+li_status tinyint(10) default 1,
+primary key(li_like_id));
+
+--2023-11-21
+create table product_file(
+uuid varchar(256),
+bno bigint not null,
+save_dir varchar(256) not null,
+file_name varchar(256) not null,
+file_type tinyint(1) default 1,
+file_size bigint,
+reg_at datetime default now(),
+category varchar(100),
+primary key(uuid));
+
+--2023-12
+--커뮤니티 파일
+create table community_file(
+uuid varchar(256),
+bno bigint not null,
+save_dir varchar(256) not null,
+file_name varchar(256) not null,
+file_type tinyint(1) default 0,
+file_size bigint,
+reg_at datetime default now(),
+primary key(uuid));
+
+--리뷰 테이블
+create table review(
+re_rno bigint auto_increment,
+re_bno bigint NOT NULL,
+re_user_id varchar(100) not null,
+re_content text not null,
+re_score int not null,
+reg_at datetime default now(),
+primary key(re_rno));
+
+--커뮤니티 좋아요
+create table community_like(
+lk_no bigint auto_increment,
+lk_bno bigint not null,
+lk_email varchar(100) not null,
+lk_reg_at datetime default now(),
+primary key(lk_no));
+
+--커뮤니티 댓글
+create table community_cmt(
+cmt_cno bigint auto_increment,
+cmt_bno bigint not null,
+cmt_email varchar(100) not null,
+cmt_nick_name varchar(100) not null,
+cmt_content text not null,
+cmt_reg_at datetime default now(),
+cmt_mod_at datetime default now(),
+cmt_answer_cnt int default 0,
+cmt_is_del varchar(10) default 'N',
+primary key(cmt_cno));
+
+--업체 판매 메뉴
+create table store_menu (
+str_bno bigint,
+str_menu_id bigint auto_increment,
+str_menu varchar(100),
+str_price varchar(100),
+str_explain varchar(100),
+primary key (str_menu_id)
+);
+
+--대댓글
+create table community_re_cmt(
+re_cno bigint auto_increment,
+re_cmt_cno bigint not null,
+re_bno bigint not null,
+re_email varchar(100) not null,
+re_nick_name varchar(100) not null,
+re_content text not null,
+re_reg_at datetime default now(),
+re_mod_at datetime default now(),
+primary key(re_cno));
+
+--멤버
+create table member(
+mem_email varchar(100),
+mem_pw varchar(1000) not null,
+mem_nick_name varchar(100) unique not null,
+mem_phone varchar(100) unique,
+mem_sido varchar(100),
+mem_sigg varchar(100),
+mem_emd varchar(100),
+mem_reg_at datetime default now(),
+mem_mod_at datetime default now(),
+mem_last_login datetime default null,
+primary key(mem_email));
+
+--권한
+create table auth_member(
+email varchar(100) not null,
+auth varchar(50) not null
+);
+
+--프로필 파일
+create table profile_file(
+uuid varchar(256),
+pr_email varchar(100) not null,
+save_dir varchar(256) not null,
+file_name varchar(256) not null,
+file_type tinyint(1) default 0,
+file_size bigint,
+reg_at datetime default now(),
+primary key(uuid));
+

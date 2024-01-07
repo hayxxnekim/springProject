@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.CommunityCmtDAO">
+	<insert id="insert">
+		insert into community_cmt(cmt_bno, cmt_email, cmt_nick_name, cmt_content)
+		values(#{cmtBno}, #{cmtEmail}, #{cmtNickName}, #{cmtContent})
+	</insert>
+
+	<select id="getList" resultType="com.avo.www.domain.CommunityCmtVO">
+		select * from community_cmt where cmt_bno = #{cmtBno}
+		order by cmt_cno
+	</select>
+	
+	<update id="update">
+		update community_cmt set cmt_content = #{cmtContent}, cmt_mod_at = now()
+		where cmt_cno = #{cmtCno}
+	</update>
+	
+	<update id="updateIsDel">
+		update community_cmt set cmt_is_del = 'Y' where cmt_cno = #{cmtCno}
+	</update>
+	
+	<select id="selectOneBnoTotalCount" resultType="int">
+		select count(cmt_cno) from community_cmt where cmt_bno = #{cmtBno}
+	</select>
+	
+	<!-- <select id="getListPaging" resultType="com.avo.www.domain.CommunityCmtVO">
+		select * from community_cmt where cmt_bno = #{cmtBno}
+		order by cmt_cno
+		limit #{pgvo.pageStart}, #{pgvo.qty}
+	</select> -->
+	
+	<!-- 게시물 삭제시 댓글도 삭제용 -->
+	<delete id="boardCmtDelete">
+		delete from community_cmt where cmt_bno = #{cmtBno}
+	</delete>
+	
+	<!-- 대댓글 등록시 대댓글수 업데이트 -->
+	<update id="updateReCnt">
+		update community_cmt set cmt_answer_cnt = cmt_answer_cnt + 1 
+		where cmt_cno = #{cmtCno}
+	</update>
+	
+	<!-- 대댓글 삭제시 대댓글수 업데이트 -->
+	<update id="afterDelUpdateReCnt">
+		update community_cmt set cmt_answer_cnt = cmt_answer_cnt - 1 
+		where cmt_cno = #{cmtCno}
+	</update>
+</mapper>

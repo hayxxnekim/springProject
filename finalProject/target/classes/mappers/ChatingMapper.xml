@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.ChatingDAO">
+	<!-- chat_room table -->
+	<select id="selectRoomCnt" resultType="int">
+		select count(chat_room_id) from chat_room
+		where chat_bno = #{chatBno}
+		AND chat_send_user_id = #{chatSendUserId}
+		AND chat_get_user_id = #{chatGetUserId}
+		<!-- AND chat_is_reviewed = "N" -->
+	</select>
+	<insert id="insertChatRoom">
+		insert into chat_room (chat_send_user_id, chat_get_user_id, chat_bno)
+		values (#{chatSendUserId},#{chatGetUserId},#{chatBno})
+	</insert>
+	<select id="getChatingList" resultType="com.avo.www.domain.ChatRoomVO">
+		select * from chat_room
+		where chat_send_user_id = #{userId}
+		OR chat_get_user_id = #{userId}
+		<!-- AND chat_is_reviewed = "N" -->
+	</select>
+	<select id="selectChatRoomBno" resultType="long">
+		select chat_room_id from chat_room where chat_bno = #{chatBno}
+	</select>
+	<select id="selectEmailFromBno" resultType="String">
+		select chat_get_user_id from chat_room where chat_room_id = #{chatBno}
+	</select>
+	<select id="selectOtherEmailFromBno" resultType="String">
+		select chat_send_user_id from chat_room where chat_room_id = #{chatBno}
+	</select>
+	<select id="getOneChatRoom" resultType="com.avo.www.domain.ChatRoomVO">
+		select * from chat_room where chat_room_id = #{chatBno}
+		<!-- AND chat_is_reviewed = "N" -->
+	</select>
+	<update id="setReviewed">
+		update chat_room set chat_is_reviewed = "Y" where chat_room_id = #{chatBno}
+	</update>
+	
+	<!-- message table -->
+	<insert id="insertChatMsg">
+		insert into message (msg_room_id, msg_send_user_id, msg_get_user_id, msg_content)
+		values (#{msgRoomId},#{msgSendUserId},#{msgGetUserId},#{msgContent})
+	</insert>
+	<select id="getMsgList" resultType="com.avo.www.domain.ChatMessageVO">
+		select * from message where msg_room_id = #{chatBno}
+	</select>
+	<select id="getLastMsg" resultType="String">
+		select msg_content from message where msg_room_id = #{chatBno} order by msg_id desc limit 0,1
+	</select>
+</mapper>

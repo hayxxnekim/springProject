@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.FaqBoardDAO">
+	<insert id="insert">
+		insert into faq(faq_email, faq_title, faq_content, faq_category)
+		values(#{faqEmail}, #{faqTitle}, #{faqContent}, #{faqCategory})
+	</insert>
+
+	<select id="getList" resultType="com.avo.www.domain.FaqBoardVO">
+		select * from faq
+		<include refid="search"></include>
+		order by faq_bno desc
+	</select>
+	
+	<select id="getMenuList" resultType="com.avo.www.domain.FaqBoardVO">
+		select * from faq 
+		where faq_category = #{faqCategory}
+		order by faq_bno desc
+	</select>
+	
+	<sql id="search">
+		<if test="type != null">
+			<!-- 맨앞에 오는 OR 삭제 -->
+			<trim prefix="where (" suffix=")" prefixOverrides="OR">
+				<!-- getTypeToArray 배열값을 가져와 type이라는 이름으로 저장 -->
+				<foreach collection="typeToArray" item="type">
+					<!-- 전체 앞에 OR 붙이기 -->
+					<trim prefix="OR">
+						<choose>
+							<when test="type == 't'.toString()">
+							<!-- toString하는 이유 : 내가 String으로 만들었지만
+						 	DB상에서는 varchar이므로 다시 가져왔을 때는 String으로 인식이 안될 수 있기 때문. -->
+								faq_title like concat('%', #{keyword}, '%')
+							</when>
+							<when test="type == 'c'.toString()">
+								faq_content like concat('%', #{keyword}, '%')
+							</when>
+						</choose>
+					</trim>
+				</foreach>
+			</trim>
+		</if>
+	</sql>
+	
+	<select id="getModifyBoard" resultType="com.avo.www.domain.FaqBoardVO">
+		select * from faq
+		where faq_bno = #{faqBno}
+	</select>
+	
+	<update id="update">
+		update faq set faq_title = #{faqTitle}, faq_content = #{faqContent}, faq_category = #{faqCategory}
+		where faq_bno = #{faqBno}
+	</update>
+	
+	<delete id="delete">
+		delete from faq where faq_bno = #{faqBno}
+	</delete>
+</mapper>

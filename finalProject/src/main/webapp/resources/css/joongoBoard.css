@@ -1,0 +1,530 @@
+/* 스크롤 바 없애는 css */
+/* body{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar{
+    display: none;
+} */
+/* joongo board list css start */
+.bodyContainer > div:last-child{
+    margin-bottom: 90px;
+}
+.joongoBanner{
+    background: url(../image/joongo_banner.jpg) no-repeat center #fffde8;
+    width: 100%;
+    height: 350px;
+}
+.boardMenuArea{
+    padding: 70px 80px 45px;
+    text-align: right;
+    font-family: 'suit';
+}
+.boardMenuArea h3{
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.boardMenuArea p{
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 0;
+    color: #777;
+    font-size: 15px;
+}
+.boardMenuArea select{
+    padding: 5px 20px 5px 5px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    background: url(../image/down_arrow.png) no-repeat 92% 50%/12px auto;
+    appearance: none;
+    outline: none;
+}
+.boardMenuArea select:not(:last-child){
+    margin-right: 20px;
+}
+/* .boardMenuArea select option:checked,
+.boardMenuArea select option:hover{
+    background: #84a331;
+    color: #333;
+} */
+
+.boardListArea{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 20px;
+    margin: 0 80px 40px;
+    font-family: 'suit';
+}
+.boardListArea .oneList{
+    width: 265px;
+}
+.boardListArea .oneList a{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #ededed;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+.boardListArea .oneList:hover a{
+    box-shadow: 0 5px 5px rgba(80, 80, 80, 0.2);
+}
+.oneList a img{
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+/* itemInfo start */
+.itemInfo{
+    padding: 22px 20px;
+    box-sizing: border-box;
+}
+.itemInfo > *:not(h5){
+    margin-bottom: 10px;
+}
+.itemInfo h5{
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.itemInfo b{
+    font-size: 20px;
+    display: block;
+}
+.itemInfo b:has(strong){
+    font-weight: 500;
+}
+.itemInfo strong{
+    margin-left: 8px;
+}
+.itemInfo p{
+    display: inline-block;
+}
+.itemInfo p:nth-child(3){
+    margin-bottom: 0;
+}
+.itemInfo span{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.itemInfo small::after{
+    content: "";
+    width: 1px;
+    height: 10px;
+    background-color: #aaa;
+    position: absolute;
+    top: 5px;
+    left: -5px;
+}
+.itemInfo p, .itemInfo small{
+    font-size: 14px;
+    color: #aaa;
+    position: relative;
+}
+.itemInfo small{
+    margin-left: 10px;
+}
+.itemInfo > *:last-child{
+    margin-bottom: 0;
+}
+/* itemInfo end */
+/* moreBtnArea start */
+.moreBtnArea{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.moreBtnArea .moreBtn{
+    font-size: 16px;
+    width: 120px;
+    height: 50px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    background: url(../image/down_arrow.png) no-repeat 80% 50% / 10px auto;
+    box-shadow: 0 0 5px rgba(110, 110, 110, 0.2);
+    transition: 0.2s;
+}
+.moreBtnArea .moreBtn:hover{
+    background-color: #eee;
+}
+/* moreBtnArea end */
+/* joongo board list end */
+
+/* joongo board detail start */
+/* floatMenu start */
+section.floatMenu{
+    position: fixed;
+    z-index: 100;
+    top: 20%;
+    right: 5%;
+    padding: 20px 0;
+    width: 80px;
+    height: 180px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-family: 'suit';
+}
+section.floatMenu button{
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+section.floatMenu button i{
+    display: inline-block;
+    width: 100%;
+    font-size: 20px;
+}
+section.floatMenu button span{
+    font-size: 12px;
+}
+section.floatMenu button i{
+    color: #d3d3d3;
+}
+section.floatMenu button i.bi-heart-fill:not(.no-login){
+    color: #a33131;
+}
+/* floatMenu end */
+.joongoDetailContainer{
+    width: 700px;
+    margin: 70px auto 110px;
+    position: relative;
+    font-family: 'suit';
+}
+.joongoDetailContainer > div{
+    width: 100%;
+}
+.joongoDetailContainer > div:not(:last-child),
+form > div:not(:last-child){
+    margin-bottom: 40px;
+}
+.carousel-inner img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+/* profileArea start */
+.profileArea{
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.profileArea img{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    border: 1px solid #d3d3d3;
+    object-fit: cover;
+    border-radius: 25px;
+}
+.profileArea .writerInfo{
+    width: calc(100% - 150px);
+}
+.profileArea .writerInfo a{
+    color: #333;
+}
+.profileArea .writerInfo p,
+.profileArea .writerInfo b{
+    display: inline-block;
+    height: 25px;
+    width: 100%;
+    margin: 0;
+}
+.profileArea button{
+    align-items: center;
+    border: 1px solid #774f2f;
+    background-color: #fff;
+    color: #774f2f;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+}
+.profileArea button:hover{
+    background-color: #774f2f;
+    color: #fff;
+    transition: 0.2s;
+}
+/* profileArea end */
+/* prodArea start */
+.prodArea{
+    width: 100%;
+    font-family: 'suit';
+    padding-bottom: 30px;
+    border-bottom: 1px solid #efefef;
+}
+.prodArea span{
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #85a331;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.prodArea h3{
+    font-size: 24px;
+}
+.prodArea h2{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.prodArea textarea{
+    width: 100%;
+    border: 0;
+    resize: none;
+}
+.prodArea textarea:focus{
+    outline: 0;
+}
+.prodArea p{
+    position: relative;
+    margin-bottom: 0;
+    display: inline-block;
+    font-size: 14px;
+    color: #606060;
+    letter-spacing: -0.2px;
+}
+.prodArea p:not(:last-child){
+    margin-right: 10px;
+}
+.prodArea p:last-child::after{
+    content: "";
+    position: absolute;
+    top: calc(50% - 4px);
+    left: -5px;
+    width: 1px;
+    height: 8px;
+    background-color: #a1a1a1;
+}
+/* map start */
+.mapContainer {
+    font-size: inherit;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.bi-geo-alt {
+  font-size: 20px;
+  color: #85a331;
+  top: 0px;
+  position: absolute;
+}
+.geoNext {
+	margin-left: 29px;
+}
+.roadAdr{
+	color: #606060;
+	font-size: 14px;
+	padding-left: 30px;
+	margin-bottom: 8px;
+}
+.zoomIn {
+	position: absolute;
+	top: 65px;
+	left: 15px;
+	z-index: 1;
+	border: 1px solid black;
+	border-bottom: 1px solid #606060;
+} 
+.zoomOut {
+	position: absolute;
+	top: 93px;
+	left: 15px;
+	z-index: 1;
+	border: 1px solid black;
+	border-top: none;
+}
+/* mapContainser end */
+/* prodArea end */
+/* lastBtnArea start */
+.lastBtnArea{
+    display: flex;
+    justify-content: center;
+}
+.lastBtnArea a:first-child{
+    margin-right: 25px;
+}
+.lastBtnArea button{
+    background-color: #fff;
+    font-size: 14px;
+    width: 100px;
+    height: 60px;
+    border-radius: 30px;
+}
+.lastBtnArea button[type=submit]:hover{
+    background-color: #84a331;
+    color: #fff;
+    transition: 0.2s;
+}
+.lastBtnArea button[type=button]:hover{
+    background-color: #999;
+    color: #fff;
+    transition: 0.2s;
+}
+.lastBtnArea button[type=submit]{
+    border: 2px solid #84a331;
+    color: #84a331;
+}
+.lastBtnArea button[type=button]{
+    border: 2px solid #999;
+    color: #999;
+}
+.lastBtnArea button:disabled,
+.lastBtnArea button:disabled:hover{
+    background-color: #fff;
+    border-color: indianred;
+    color: indianred;
+}
+/* lastBtnArea end */
+/* joongo board detail end */
+
+/* joongo board register start */
+.banner{
+    width: 100%;
+    height: 250px;
+    background-color: #dbdf80;
+    margin-bottom: 70px;
+}
+.bodyContainer > form{
+    width: 700px;
+    margin: 70px auto 90px;
+}
+
+form > div.form > textarea{
+	resize: none;
+    box-sizing: border-box;
+    outline: none;
+}
+#proFullAddr{
+    width: 306px;
+}
+#proDetailAddr{
+	border-left: none;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	width: 301.9px;
+}
+.bodyContainer form label{
+	margin-bottom: 15px;
+	font-weight: 800;
+	font-size: 16px;
+}
+
+.form > input, .form > select{
+	width: 100%;
+	height: 48px;	
+	padding: 10px 15px;
+	border-radius: 5px;
+	border: solid 1px #e5e5e5;
+}
+.form > textarea{
+	width: 100%;
+    padding: 15px;
+	border-radius: 5px;
+    resize: none;
+	border: solid 1px #e5e5e5;
+}
+
+/* 파일 */
+.fileForm{
+	display: flex;
+	justify-content: flex-start;
+	margin: 0;
+}
+.fileInput {
+    width: calc(100% - 120px); /* 버튼의 너비를 뺀 나머지만 차지하도록 함 */
+    box-sizing: border-box; /* width와 height에 padding과 border를 포함하도록 함 */
+    margin-right: -4px; /* 인라인 요소의 간격을 없애기 위해 마진을 음수로 설정 */
+	border-radius: 5px 0 0 5px;
+}
+.fileBtn{
+    width: 130px; 
+	height: 48px;
+	border-radius: 0 5px 5px 0;
+	border: none;
+	background-color: #c4c4c4;
+	color: white;
+    display: inline-block;
+    box-sizing: border-box; 
+    padding-top: 5px;
+}
+.fileZone{
+	border-radius: 0 0 5px 5px;
+	border-left: solid 1px #e5e5e5;
+	border-right: solid 1px #e5e5e5;
+	border-bottom: solid 1px #e5e5e5;
+}
+.imageUl{
+	padding: 20px;
+	margin: 0;
+}
+.imageLi{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;	
+	align-items: center;
+}
+.last-file{
+	margin: 0;
+}
+.imageCancelBtn{
+	border: none;
+    border-radius: 5px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+    line-height: 30px;
+	background-color: #e5e5e5;
+	color: white;
+}
+.imageCancelBtn:hover{
+	background-color: #84a331;
+}
+.imgOk, .imgNo{
+	margin-left: 5px;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 4px 5px;
+    color: white;
+}
+.imgOk{
+	background-color: #84a331;
+}
+.imgNo{
+	background-color: indianred;
+}
+
+/* 수정 css */
+.uploadedImgUl{
+	border-radius: 5px;
+	border: solid 1px #e5e5e5;
+	margin: 0;
+	padding: 20px;
+}
+.imgs{
+	margin-right: 20px;
+}
+/* joongo board register end */

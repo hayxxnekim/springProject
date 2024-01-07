@@ -1,0 +1,54 @@
+@import url(../css/reset.css);
+@import url(../css/joongoBoard.css);
+/* search start */
+.tabArea{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'suit';
+}
+ul.tabMenu{
+    margin: 70px auto 60px;
+    padding: 4px;
+    border: 2px solid #93b336;
+    border-radius: 48px;
+    font-size: 0;
+    overflow: hidden;
+    display: inline-block;
+}
+ul.tabMenu > li{
+    display: inline-block;
+    border-radius: 40px;
+    font-size: 20px;
+}
+
+ul.tabMenu > li:hover{
+    background-color: #e3edc8;
+    transition: 0.2s;
+}
+ul.tabMenu > li.active{
+    background-color: #93b336;
+}
+ul.tabMenu > li.active button{
+    color: #fff;
+}
+ul.tabMenu > li > button{
+    border: 0;
+    width: 180px;
+    height: 80px;
+    background-color: transparent;
+}
+.tabContents{
+    width: 100%;
+}
+
+.tabContents > div:not(.on){
+    display: none;
+}
+.tabContents h2{
+    width: 100%;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-left: 85px;
+}

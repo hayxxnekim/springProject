@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.HmemberDAO">
+	<select id="getDeail" resultType="com.avo.www.security.MemberVO">
+		select * from member where mem_email = #{email}
+	</select>
+	<select id="getPw" resultType="String">
+		select mem_pw from member where mem_email = #{email}
+	</select>
+	<update id="jjsModify">
+		update product set pro_nick_name = #{memNickName} where pro_email = #{memEmail}
+	</update>
+	<update id="cmModify">
+		update community set cm_nick_name = #{memNickName} where cm_email = #{memEmail}
+	</update>
+	<update id="cmCmtModify">
+		update community_cmt set cmt_nick_name = #{memNickName} where cmt_email = #{memEmail}
+	</update>
+	<update id="cmReCmtModify">
+		update community_re_cmt set re_nick_name = #{memNickName} where re_email = #{memEmail}
+	</update>
+	<update id="modifyPwEmpty">
+		update member set mem_nick_name = #{memNickName}, mem_sido = #{memSido}, mem_sigg = #{memSigg}, mem_emd = #{memEmd}, mem_mod_at = now() , mem_phone = #{memPhone} where mem_email = #{memEmail}
+  	</update>
+  	<update id="modify">
+  		update member set mem_pw = #{memPw}, mem_nick_name = #{memNickName}, mem_sido = #{memSido}, mem_sigg = #{memSigg}, mem_emd = #{memEmd}, mem_mod_at = now(), mem_phone = #{memPhone} where mem_email = #{memEmail}
+  	</update>	
+  	<update id="jjsDelete">
+  		update product set pro_is_del = 'Y' where pro_email = #{email}
+  	</update>
+  	<update id="cmDelete">
+  		update community set cm_is_del = 'Y' where cm_email = #{email}
+  	</update>
+  	<delete id="amDelte">  		
+  		delete from auth_member where email = #{email}
+  	</delete>
+  	<delete id="mbDelete">
+  		delete from member where mem_email = #{email}
+  	</delete>
+  	<select id="selectBuyList" resultType="com.avo.www.domain.BuyItemVO">
+  		select * from buy_item where buy_user_email = #{userEmail}
+  	</select>
+  	<select id="getTemp" resultType="java.math.BigDecimal">
+  		select re_temp from review where receiver_email = #{email}
+  		order by reg_at desc limit 1;
+  	</select>
+	<select id="SelectReviewPaging" resultType="com.avo.www.domain.ReviewVO">
+  		select * from review 		
+  		where re_category = #{type} and receiver_email = #{userEmail}
+  		order by reg_at desc
+  	</select>
+</mapper>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.CommunityBoardDAO">
+	<insert id="insert">
+		insert into community(cm_email, cm_nick_name, cm_title, cm_content, cm_menu, cm_sido, cm_sigg, cm_emd)
+		values(#{cmEmail}, #{cmNickName}, #{cmTitle}, #{cmContent}, #{cmMenu}, #{cmSido}, #{cmSigg}, #{cmEmd})
+	</insert>
+	
+	<select id="getList" resultType="com.avo.www.domain.CommunityBoardVO">
+		select * from community 
+		where cm_is_del = 'N'
+		order by cm_bno desc
+	</select>
+	
+	<select id="getDetail" resultType="com.avo.www.domain.CommunityBoardVO">
+		select * from community where cm_bno = #{cmBno}
+	</select>
+	
+	<update id="update">
+		update community set cm_title = #{cmTitle}, cm_content = #{cmContent}, cm_menu = #{cmMenu},
+		cm_mod_at = now() where cm_bno = #{cmBno}
+	</update>
+	
+	<update id="delete">
+		update community set cm_is_del = 'Y' where cm_bno = #{cmBno}
+	</update>
+	
+	<update id="readCount">
+		update community set cm_read_cnt = cm_read_cnt + #{cnt} where cm_bno = #{cmBno}
+	</update>
+	
+	<update id="updateCommentCount">
+		update community c set cm_cmt_cnt = 
+		(select count(cmt_bno) from community_cmt where cmt_bno = c.cm_bno and cmt_is_del = 'N') 
+		+ (select count(re_bno) from community_re_cmt where re_bno = c.cm_bno)
+	</update>
+	
+	<update id="updateLikeCnt">
+		update community set cm_like_cnt = cm_like_cnt + #{cnt}
+		where cm_bno = #{cmBno}
+	</update>
+	
+	<select id="getFlistBno" resultType="long">
+		select max(cm_bno) from community
+	</select>
+	
+	<update id="updateFileCnt">
+		update community c set cm_file_cnt = 
+		(select count(bno) from community_file where bno = c.cm_bno)
+	</update>
+	
+	<select id="communityTotal" resultType="int">
+		select count(cm_bno) from community where cm_is_del = 'N'
+	</select>
+	<select id="communityMenuTotal" resultType="int">
+		select count(cm_bno) from community where cm_is_del = 'N' and cm_menu = #{cmMenu}
+	</select>
+	
+	<select id="getListMore" resultType="com.avo.www.domain.CommunityBoardVO">
+		select * from community where cm_is_del = 'N'
+		order by cm_bno desc limit #{pageStart}, #{qty}
+	</select>
+	<select id="getMenuList" resultType="com.avo.www.domain.CommunityBoardVO">
+		select * from community where cm_is_del = 'N' and cm_menu = #{cmMenu}
+		order by cm_bno desc limit #{pgvo.pageStart}, #{pgvo.qty}
+	</select>
+	
+	<select id="getSearchCommunityTotalCount" resultType="int">
+		select count(cm_bno) from community where cm_is_del = 'N'
+		<include refid="search" />
+	</select>
+	
+	<select id="getSearchCommunityList" resultType="com.avo.www.domain.CommunityBoardVO">
+		select * from community where cm_is_del = 'N'
+		<include refid="search" />
+		order by cm_bno desc
+		limit #{pageStart}, #{qty}
+	</select>
+
+	<sql id="search">
+		<choose>
+			<when test="srcCondit != null">
+				<trim prefix="AND" prefixOverrides="OR">
+					<foreach collection="conditToArray" item="srcCondit">
+						<trim prefix="OR">
+							<choose>
+								<when test="srcCondit == 'title'.toString()">
+									cm_title like concat('%',#{keyword},'%')
+								</when>
+								<when test="srcCondit == 'nickname'.toString()">
+									cm_nick_name like concat('%',#{keyword},'%')
+								</when>
+								<when test="srcCondit == 'email'.toString()">
+									cm_email like concat('%',#{keyword},'%')
+								</when>
+								<when test="srcCondit == 'content'.toString()">
+									cm_content like concat('%',#{keyword},'%')
+								</when>
+							</choose>
+						</trim>
+					</foreach>
+				</trim>
+			</when>
+			<!-- 검색 조건을 선택하지 않았을 경우 -->
+			<otherwise>
+				AND (cm_title like concat('%',#{keyword},'%')
+				OR cm_nick_name like concat('%',#{keyword},'%')
+				OR cm_email like concat('%',#{keyword},'%')
+				OR cm_content like concat('%',#{keyword},'%'))
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- index용 -->
+	<select id="getCommunityList" resultType="com.avo.www.domain.CommunityBoardVO">
+		select * from community 
+      	where cm_is_del = 'N'
+      	order by cm_bno desc
+		limit 0, 8
+	</select>
+	<select id="getCommunityLikeList" resultType="com.avo.www.domain.CommunityBoardVO">
+		select * from community 
+      	where cm_is_del = 'N'
+      	order by cm_like_cnt desc
+		limit 0, 8
+	</select>
+</mapper>

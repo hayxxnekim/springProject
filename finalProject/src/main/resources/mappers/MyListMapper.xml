@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.MyListDAO">
+	<!-- 관심목록 -->
+	<select id="likeProList" resultType="pbvo">
+		SELECT * FROM product WHERE pro_is_del = 'N' AND pro_like_cnt > 0
+	        AND pro_bno IN 
+	            (SELECT li_bno FROM product_like WHERE li_user_id = #{userEmail})
+	    <include refid="menuSelect"></include>
+	</select>
+	<select id="likeList" resultType="com.avo.www.domain.LikeItemVO">
+		SELECT * FROM product_like WHERE li_status = 1 and li_user_id = #{userEmail} and li_bno = #{proBno}
+	</select>
+	<select id="getLikeFileList" resultType="com.avo.www.domain.FileVO">
+		SELECT * FROM product_file WHERE bno = #{proBno}
+	</select>
+
+	<!--  동네생활 리스트  -->
+	<select id="getCommuWriteList" resultType="com.avo.www.domain.CommunityBoardVO">
+		SELECT * FROM community WHERE cm_email = #{userEmail} AND cm_is_del = 'N'
+	</select>
+	<select id="getFileList" resultType="com.avo.www.domain.FileVO">
+		SELECT * FROM community_file WHERE bno = #{cmBno}
+	</select>
+	<select id="getCommuLikeList" resultType="com.avo.www.domain.CommunityBoardVO">
+		SELECT c.*
+			FROM community c
+				JOIN community_like cl ON c.cm_bno = cl.lk_bno
+					WHERE cl.lk_email = #{userEmail}
+	</select>
+<!-- 관심목록 -->
+<sql id="menuSelect">
+    <if test="type != null">
+        <trim prefix="and (" suffix=")" prefixOverrides="OR">
+            <trim prefix="OR">
+                <choose>
+                    <when test="type == 'joongo'.toString()">
+                        pro_category like 'joongo'
+                    </when>
+                    <when test="type == 'store'.toString()">
+                        pro_category like 'store'
+                    </when>
+                    <when test="type == 'job'.toString()">
+                        pro_category like 'job'
+                    </when>
+                </choose>
+            </trim>
+        </trim>
+    </if>
+    <if test="type == 'all'.toString()">
+    </if>
+</sql>		
+
+<!--    <select id="getTotalLikeCount" resultType="int">
+		SELECT COUNT(*) FROM product p
+			JOIN product_like pl ON p.pro_bno = pl.li_bno
+			WHERE pl.li_status = 1
+			AND p.pro_is_del = 'N'
+			AND pl.li_user_id = #{liUserId}
+			<if test="pgvo.type != 'undefined' and pgvo.type != '전체'">
+			AND p.pro_category = #{pgvo.type}
+			</if>
+   </select>
+   
+	<select id="getMoreLikeList" resultType="pbvo">
+	    SELECT * FROM product WHERE pro_is_del = 'N' AND pro_like_cnt > 0
+	        AND pro_bno IN 
+	            (SELECT li_bno FROM product_like WHERE li_user_id = #{liUserId})
+	    <include refid="menuSelect"></include>
+	    limit #{pgvo.pageStart}, #{pgvo.qty}
+	</select>
+	<select id="getLikeList" resultType="com.avo.www.domain.LikeItemVO">
+		select * from product_like where li_status = 1 and li_user_id = #{liUserId}
+	</select> -->
+	
+<!-- 	
+	<select id="getCommuTotalCount" resultType="int">
+		<if test="pgvo.type != 'undefined'">
+			<choose>
+				<when test="pgvo.type == 'commuWriterList'.toString()">
+					SELECT COUNT(*) FROM community WHERE cm_email = #{liUserId} AND cm_is_del = 'N'
+				</when>
+				<when test="pgvo.type == 'commuLikeList'.toString()">
+					 SELECT COUNT(*) FROM community_like WHERE lk_email = #{liUserId}
+				</when>
+			</choose>
+		</if>
+		<if test="pgvo.type == 'undefined'">
+			SELECT COUNT(*) FROM community WHERE cm_email = #{liUserId} AND cm_is_del = 'N'
+		</if>
+   </select>
+   
+   <select id="getCommuLikeList" resultType="com.avo.www.domain.LikeItemVO">
+   		SELECT * FROM community_like WHERE lk_email = #{liUserId}
+   </select>
+   <select id="getMoreCommuList" resultType="com.avo.www.domain.CommunityBoardVO">
+ 		<if test="pgvo.type != 'undefined'">
+			<choose>
+				<when test="pgvo.type == 'commuWriterList'.toString()">
+					SELECT * FROM community where cm_email = #{liUserId} AND cm_is_del = 'N'
+				</when>
+				<when test="pgvo.type == 'commuLikeList'.toString()">
+					SELECT c.*
+					FROM community c
+					JOIN community_like cl ON c.cm_bno = cl.lk_bno
+					WHERE cl.lk_email = #{liUserId}
+				</when>
+			</choose>
+		</if>
+		<if test="pgvo.type == 'undefined'">
+			SELECT * FROM community where cm_email = #{liUserId} AND cm_is_del = 'N'
+		</if>
+		limit #{pgvo.pageStart}, #{pgvo.qty}
+	</select>
+ -->
+
+
+	
+	
+	
+</mapper>

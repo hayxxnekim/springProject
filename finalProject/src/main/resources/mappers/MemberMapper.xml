@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.MemberDAO">
+	<!-- 로그인시 마지막 로그인 업데이트 -->
+	<update id="updateLastLogin">
+		update member set mem_last_login = now() where mem_email = #{memEmail}
+	</update>
+	
+	<!-- 해당 이메일이 있는지 확인 -->
+	<select id="selectEmail" resultType="com.avo.www.security.MemberVO">
+		select * from member where mem_email = #{memEmail}
+	</select>
+	<select id="selectAuths" resultType="com.avo.www.security.AuthVO">
+		select * from auth_member where email = #{email}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insert">
+		insert into member(mem_email, mem_pw, mem_nick_name, mem_phone, mem_sido, mem_sigg, mem_emd)
+		values(#{memEmail}, #{memPw}, #{memNickName}, #{memPhone}, #{memSido}, #{memSigg}, #{memEmd})
+	</insert>
+	<insert id="insertAuthMember">
+		insert into auth_member values(#{email}, 'ROLE_USER')
+	</insert>
+	
+	<!-- 이미 가입한 이메일인지 확인용 -->
+	<select id="hasEmail" resultType="com.avo.www.security.MemberVO">
+		select * from member where mem_email = #{memEmail}
+	</select>
+	<select id="hasNick" resultType="com.avo.www.security.MemberVO">
+		select * from member where mem_nick_name = #{memNickName}
+	</select>
+	<select id="hasPhone" resultType="com.avo.www.security.MemberVO">
+		select * from member where mem_phone = #{memPhone}
+	</select>
+	
+	<!-- 이메일로 닉네임 호출 -->
+	<select id="getNickFromEmail" resultType="String">
+		select mem_nick_name from member where mem_email = #{msgGetUserEmail}
+	</select>
+	
+	<!-- 이메일 찾기 -->
+	<select id="findEmail" resultType="com.avo.www.security.MemberVO">
+		select * from member where mem_phone = #{memPhone}
+	</select>
+	
+	<!-- 비밀번호 임시 비밀번호로 변경 -->
+	<update id="findPw">	
+		update member set mem_pw = #{memPw} where mem_email = #{memEmail}
+	</update>
+</mapper>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.JoongoBoardDAO">
+	<!-- 기본 CRUD -->
+	<insert id="insert">
+		insert into product (pro_email, pro_nick_name, pro_title, pro_content, pro_price, pro_category, pro_menu, pro_sido, pro_sigg, pro_emd, pro_full_addr, pro_detail_addr)
+		values(#{proEmail}, #{proNickName}, #{proTitle}, #{proContent}, #{proPrice}, #{proCategory}, #{proMenu}, #{proSido}, #{proSigg}, #{proEmd}, #{proFullAddr}, #{proDetailAddr})
+	</insert>
+	<select id="selectOneBno" resultType="long">
+		select max(pro_bno) from product;
+	</select>
+	<select id="getListMore"
+		resultType="com.avo.www.domain.ProductBoardVO">
+		select * from product
+		where pro_category = 'joongo' AND pro_is_del = 'N'
+		<include refid="boardSelect" />
+		limit #{pageStart}, #{qty}
+	</select>
+	<select id="selectJoongoTotal" resultType="int">
+		select count(pro_bno) from product
+		where pro_category = 'joongo' AND pro_is_del = 'N'
+		<include refid="boardSelect" />
+	</select>
+	<select id="getDetail" resultType="com.avo.www.domain.ProductBoardVO">
+		select * from product where pro_bno = #{proBno} AND pro_is_del = 'N'
+	</select>
+	<update id="update">
+		update product set pro_title = #{proTitle}, pro_content = #{proContent},
+		pro_price = #{proPrice},
+		pro_menu = #{proMenu}, pro_mod_at = now()
+		where pro_bno = #{proBno}
+	</update>
+	<update id="delete">
+		update product set pro_is_del = 'Y' where pro_bno = #{proBno}
+	</update>
+	
+	<!-- 기타 설정값 -->
+	<update id="setReadCnt">
+		update product set pro_read_cnt = pro_read_cnt + #{i} where pro_bno = #{bno}
+	</update>
+	<update id="setFileCnt">
+		update product as p set pro_file_cnt = (select count(p.pro_bno) from
+		product_file as file where file.bno = p.pro_bno)
+	</update>
+	<update id="setLikeCnt">
+		update product as p set pro_like_cnt = (select count(p.pro_bno) from
+		product_like as li where li.li_bno = p.pro_bno AND li.li_status = 1)
+	</update>
+	<update id="updateLikeCnt">
+		update product set pro_like_cnt = pro_like_cnt + #{i} where pro_bno =
+		#{livo.liBno}
+	</update>
+	
+	<!-- 마이페이지 -->
+	<select id="selectSellList" resultType="com.avo.www.domain.ProductBoardVO">
+		select * from product where pro_email = #{userEmail} AND pro_is_del = 'N' AND pro_category = 'joongo' order by pro_re_at desc
+	</select>
+	
+	
+	<!-- 서치 관련 -->
+	<select id="getSearchProductTotalCount" resultType="int">
+		select count(pro_bno) from product
+		where pro_category = #{category} AND pro_is_del = 'N'
+		<include refid="search" />
+	</select>
+	<select id="getSearchProductList" resultType="com.avo.www.domain.ProductBoardVO">
+		select * from product
+		where pro_category = #{category} AND pro_is_del = 'N'
+		<include refid="search" />
+		order by pro_re_at desc
+		limit #{pgvo.pageStart}, #{pgvo.qty}
+	</select>
+	<sql id="boardSelect">
+		<if test="type != '선택'.toString()">
+			AND pro_menu = #{type}
+		</if>
+		<if test="sorted != null">
+			<choose>
+				<when test="sorted == 'newest'.toString()">
+					order by pro_re_at DESC
+				</when>
+				<when test="sorted == 'oldest'.toString()">
+					order by pro_re_at ASC
+				</when>
+			</choose>
+		</if>
+	</sql>
+	
+	<sql id="search">
+		<choose>
+			<when test="pgvo.srcCondit != null">
+				<trim prefix="AND" prefixOverrides="OR">
+					<foreach collection="pgvo.conditToArray" item="srcCondit">
+						<trim prefix="OR">
+							<choose>
+								<when test="srcCondit == 'title'.toString()">
+									pro_title like concat('%',#{pgvo.keyword},'%')
+								</when>
+								<when test="srcCondit == 'nickname'.toString()">
+									pro_nick_name like concat('%',#{pgvo.keyword},'%')
+								</when>
+								<when test="srcCondit == 'email'.toString()">
+									pro_email like concat('%',#{pgvo.keyword},'%')
+								</when>
+								<when test="srcCondit == 'content'.toString()">
+									pro_content like concat('%',#{pgvo.keyword},'%')
+								</when>
+							</choose>
+						</trim>
+					</foreach>
+				</trim>
+			</when>
+			<!-- 검색 조건을 선택하지 않았을 경우 -->
+			<otherwise>
+				AND (pro_title like concat('%',#{pgvo.keyword},'%')
+				OR pro_nick_name like concat('%',#{pgvo.keyword},'%')
+				OR pro_email like concat('%',#{pgvo.keyword},'%')
+				OR pro_content like concat('%',#{pgvo.keyword},'%'))
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<!-- index용 -->
+	<select id="getJoongoList" resultType="com.avo.www.domain.ProductBoardVO">
+		select * from product 
+      	where pro_category = 'joongo' AND pro_is_del = 'N'
+      	order by pro_bno desc
+		limit 0, 5
+	</select>
+	<select id="getJoongoLikeList" resultType="com.avo.www.domain.ProductBoardVO">
+		select * from product 
+      	where pro_category = 'joongo' AND pro_is_del = 'N'
+      	order by pro_like_cnt desc
+		limit 0, 5
+	</select>
+</mapper>

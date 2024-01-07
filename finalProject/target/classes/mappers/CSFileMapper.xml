@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.CSFileDAO">
+	<insert id="insertFile">
+		insert into cs_file(uuid, bno, save_dir, file_name, file_type, file_size)
+		values(#{uuid}, #{bno}, #{saveDir}, #{fileName}, #{fileType}, #{fileSize})
+	</insert>
+	
+	<select id="getFileList" resultType="com.avo.www.domain.FileVO">
+		select * from cs_file where bno = #{bno}
+	</select>
+</mapper>

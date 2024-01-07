@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.JobFileDAO">
+	
+  	<insert id="insertFile">
+  		insert into product_file(uuid, save_dir, file_name, file_type, bno, file_size, category)
+  		values(#{uuid},#{saveDir},#{fileName},#{fileType},#{bno},#{fileSize}, "job")
+  	</insert>	
+  	
+  	<select id="allFlieList" resultType="com.avo.www.domain.FileVO">
+  		select * from product_file
+  	</select>
+  	
+  	<select id="getFileList" resultType="com.avo.www.domain.FileVO">
+  		select * from product_file where bno = #{bno}
+  	</select>
+  	
+  	<delete id="removeFileAll">
+  		delete from product_file where bno = #{bno}
+  	</delete>
+  	<select id="getProfileImg" parameterType="String" resultType="com.avo.www.domain.FileVO" >
+  		select * from profile_file where pr_email = #{prEmail}
+  	</select>
+  	<delete id="removeFileOne" parameterType="String">
+  		delete from product_file where uuid = #{uuid}
+  	</delete>
+
+</mapper>

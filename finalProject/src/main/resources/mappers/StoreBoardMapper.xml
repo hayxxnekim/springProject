@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.StoreBoardDAO">
+	<insert id="insert">
+		insert into product(pro_email, pro_nick_name, pro_sido, pro_sigg, pro_emd, pro_title, pro_content, pro_category, pro_menu, pro_full_addr, pro_detail_addr)
+		values (#{proEmail}, #{proNickName}, #{proSido}, #{proSigg}, #{proEmd}, #{proTitle}, #{proContent}, #{proCategory}, #{proMenu}, #{proFullAddr}, #{proDetailAddr})
+	</insert>  
+	<update id="readCount">
+  		update product set pro_read_cnt = pro_read_cnt + #{cnt} where pro_bno = #{bno}
+  	</update>
+  	<select id="getDetail" resultType="com.avo.www.domain.ProductBoardVO">
+  		select * from product where pro_bno = #{bno}
+  	</select>
+  	<!-- 회원 정보 수정 반영X -->
+  	<update id="update">
+  	  	update product set pro_menu = #{proMenu}, pro_title = #{proTitle}, pro_content = #{proContent}, pro_mod_at = now(), 
+  	  	pro_full_addr = #{proFullAddr}, pro_detail_addr = #{proDetailAddr} 
+  		where pro_bno = #{proBno}
+  	</update>
+	<update id="delete">
+		update product set pro_is_del = 'Y' where pro_bno = #{bno}
+	</update> 	
+	<select id="getTotalCount" resultType="int">
+  		select count(pro_bno) from product
+  		where pro_is_del = "N" and pro_category = 'store'
+  		<include refid="search"></include>
+  	</select>	
+	<select id="SelectListPaging" resultType="com.avo.www.domain.ProductBoardVO">
+  		select * from product 		
+  		where pro_is_del = "N" and pro_category = 'store'
+	    <include refid="search"></include>		
+ 		<include refid="orderBy"></include>
+  		limit #{pageStart}, #{qty}
+  	</select>
+  	<update id="repost">
+  		update product set pro_re_at = now() where pro_bno = #{bno}
+  	</update>
+  	<select id="selectOneBno" resultType="long">
+  		select max(pro_bno) from product where pro_category = 'store';
+  	</select>
+	<update id="updateLikeCnt">
+		update product set pro_like_cnt = pro_like_cnt + #{i} where pro_bno = #{lvo.liBno}
+	</update>
+	<select id="getEmail" resultType="String">
+  		select pro_email from product where pro_bno = #{bno}
+  	</select>
+	
+	
+<sql id="search">
+    <if test="type != null">
+        <trim prefix="and (" suffix=")" prefixOverrides="OR">
+            <trim prefix="OR">
+                <choose>
+                    <when test="type == 'lesson'.toString()">
+                        pro_menu like '과외/클래스'
+                    </when>
+                    <when test="type == 'pet'.toString()">
+                        pro_menu like '반려동물'
+                    </when>
+                    <when test="type == 'hospital'.toString()">
+                        pro_menu like '병원/약국'
+                    </when>
+                    <when test="type == 'beauty'.toString()">
+                        pro_menu like '뷰티샵'
+                    </when>
+                    <when test="type == 'laundry'.toString()">
+                        pro_menu like '세탁소'
+                    </when>
+                    <when test="type == 'repair'.toString()">
+                        pro_menu like '수리'
+                    </when>
+                    <when test="type == 'sports'.toString()">
+                        pro_menu like '운동'
+                    </when>
+                    <when test="type == 'infant'.toString()">
+                        pro_menu like '육아'
+                    </when>
+                    <when test="type == 'eatery'.toString()">
+                       pro_menu like '음식점'
+                    </when>
+                    <when test="type == 'move'.toString()">
+                        pro_menu like '이사/용달'
+                    </when>
+                    <when test="type == 'interior'.toString()">
+                        pro_menu like '인테리어 시공'
+                    </when>
+                    <when test="type == 'cleaning'.toString()">
+                        pro_menu like '청소'
+                    </when>
+                    <when test="type == 'hobby'.toString()">
+                        pro_menu like '취미'
+                    </when>
+                    <when test="type == 'dessert'.toString()">
+                        pro_menu like '카페/디저트'
+                    </when>				
+                </choose>
+            </trim>
+        </trim>
+    </if>
+</sql>	
+
+<sql id="orderBy">
+    <choose>
+        <when test="sorted == 'latest'">
+            order by pro_re_at desc
+        </when>
+        <when test="sorted == 'oldest'">
+            order by pro_re_at asc
+        </when>
+        <when test="sorted == 'likes'">
+            order by pro_like_cnt desc
+        </when>
+        <when test="sorted == 'views'">
+            order by pro_read_cnt desc
+        </when>
+        <otherwise>
+            order by pro_re_at desc
+        </otherwise>
+    </choose>
+</sql>
+
+<!-- index용 -->
+<select id="getStoreList" resultType="com.avo.www.domain.ProductBoardVO">
+	select * from product 
+    where pro_category = 'store' AND pro_is_del = 'N'
+    order by pro_bno desc
+	limit 0, 6
+</select>
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.StoreFileDAO">
+	<insert id="insertFile">
+  		insert into product_file(uuid, save_dir, file_name, file_type, bno, file_size, category)
+  		values(#{uuid},#{saveDir},#{fileName},#{fileType},#{bno},#{fileSize}, "store")
+  	</insert>
+  	<select id="getFileList" resultType="com.avo.www.domain.FileVO">
+  		select * from product_file where bno = #{bno}
+  	</select>
+  	<delete id="removeFile">
+  		delete from product_file where uuid = #{uuid}
+  	</delete>
+  	<delete id="removeFileAll">
+  		delete from product_file where bno = #{bno}
+  	</delete>
+	<select id="getAllFileList" parameterType="java.util.List" resultType="com.avo.www.domain.FileVO">
+	  select * from product_file 
+	  <if test="bnoList != null and bnoList.size() > 0">
+	    where bno IN
+	    <foreach collection="bnoList" item="bno" open="(" separator="," close=")">
+	      #{bno}
+	    </foreach>
+	  </if>
+	</select>
+</mapper>

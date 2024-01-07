@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.CommunityReCmtDAO">
+	<insert id="insert">
+		insert into community_re_cmt(re_cmt_cno, re_bno, re_email, re_nick_name, re_content)
+		values(#{reCmtCno}, #{reBno}, #{reEmail}, #{reNickName}, #{reContent})
+	</insert>
+	
+	<select id="getList" resultType="com.avo.www.domain.CommunityReCmtVO">
+		select * from community_re_cmt where re_cmt_cno = #{reCmtCno}
+		order by re_cno
+	</select>
+	
+	<update id="update">
+		update community_re_cmt set re_content = #{reContent}, re_mod_at = now()
+		where re_cno = #{reCno}
+	</update>
+	
+	<delete id="delete">
+		delete from community_re_cmt where re_cno = #{reCno}
+	</delete>
+</mapper>

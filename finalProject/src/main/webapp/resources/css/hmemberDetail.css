@@ -1,0 +1,178 @@
+/* 프사, 회원 정보 가로 배치 */ 
+.profileContainer {
+    display: flex;
+    align-items: center;
+	margin-top: 40px;
+    width: 100%;  
+    height: 250px;
+    border: 1px solid #eee;
+	overflow: hidden;
+	margin-bottom: 40px; 
+}
+
+.backProOuter{
+	width: 300px;
+   /*  height: 300px; */
+    overflow: hidden;
+    position: relative;
+}
+
+#backPro {
+    width: 350px;
+    height: 300px;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px); 
+    filter: brightness(70%) blur(5px);
+    position: relative;
+    left: -30px;
+}
+
+#mainProOuter {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#mainPro {
+    width: 125px;
+    height: 125px;
+    position: relative;
+    left: 87px;
+    top: 87px;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+#mainPro:hover {
+ 	cursor : pointer;
+}
+
+#editProfile {
+   display: none;
+   position: absolute;
+   border: 1px solid #efefef;
+   background-color: #fff;
+   z-index: 3;
+   border-radius: 5px;
+}
+
+#editProfile ul {
+    padding: 5px 10px;
+    margin: 0;
+    text-align: center;
+}
+
+#editProfile ul li a {
+	text-decoration: none;
+	color: #333;
+	font-size: 14px;
+	line-height: 30px;
+	padding: 0px 5px;
+}
+
+#editProfile ul li:nth-child(1){
+   border-bottom: 1px solid #efefef;
+  
+}
+
+#editProfile ul li a:hover {
+    font-weight: 600;
+    color: #323f11;
+    cursor : pointer;
+}
+
+.aboutMember {
+    margin-top: -100px;
+    margin-left: 30px;
+    width: 960px;
+} 
+
+.bold {
+  font-weight: bold;
+} 
+
+.nick{
+	font-size: 20px;
+	margin-right: 20px;
+}
+
+.modBtn{
+	width: 125px;
+	height: 35px;
+	border: 2px solid #84a331;
+	background-color: white;
+	border-radius: 38px;
+	position: relative;
+	top: -3px;
+	color: #84a331;
+	font-size: 14px;
+}
+
+.modBtn:hover{
+	background-color: #84a331;
+	color: white;
+	transition: 0.2s;
+}
+
+.forBorder {
+	border-top: 1px solid rgba(238, 238, 238, 0.5);
+	border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+	height: 50px;
+	width: 926px;
+	margin-top: 18px;
+	font-size: 14px;
+}
+
+.memMsg1 {
+    position: relative;
+    top: 16px;
+    margin-right: 35px;
+    color: rgb(136, 136, 136);
+}
+
+.memMsg1 i{
+	margin-right: 7px;
+	color: #FFBF00;
+}
+
+.memMsg2{
+	position: relative;
+	top: 16px;
+    margin-right: 35px;
+	color: rgb(136, 136, 136);
+}
+
+.memMsg2 i{
+	margin-right: 7px;
+	color: #7B4B1E ;
+}
+
+.memMsg3{
+	position: relative;
+	top: 16px;
+    margin-right: 35px;
+	color: rgb(136, 136, 136);
+}
+
+.memMsg3 i{
+	margin-right: 7px;
+	color: #93b336;
+}
+
+.memMsg4{
+	position: relative;
+	top: 16px;
+	color: rgb(136, 136, 136);
+}
+
+.memMsg4 i{
+	margin-right: 5px;
+	color: #FA5858;
+}
+
+.black {
+	margin-left: 5px;
+	color: black;
+}

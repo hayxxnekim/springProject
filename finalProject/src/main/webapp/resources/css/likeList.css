@@ -1,0 +1,159 @@
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 0px;
+}
+.titleLine {
+	margin: 0px 0px 30px;
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #ededed;
+}
+.titleLine h4 {
+	font-size: 20px;
+}
+.titleLine span{
+	color : #93b336;
+}
+#moreBtn {
+    width: 100%;
+    height: 37px;
+    border: none;
+    border-top: 1px solid lightgray;
+    margin: 50px 0px 100px 0px;
+	color: #adadad;
+	background: none;
+	font-size: 15px;
+	font-weight: bold;
+	transition: color 0.3s, background 0.3s;
+}
+#moreBtn i {
+	color: lightgray;
+}
+
+.brdListArea {
+    width: 100%;
+	display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.likeListContent {
+    align-items: center;
+    width: 49%;
+    height: 150px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    background-color: white;
+    border: 1px solid #ededed;
+    border-radius: 10px;
+    position : relative;
+}
+
+.likeListContent:hover {
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.likeListContent span{
+    color: black;
+}
+.likeListContent span:nth-last-child(){
+    color: gray;
+}
+.likeListContent .likeInfoArea {
+    padding: 20px 40px 20px 20px;
+    left: 20px;
+    position: relative;
+}
+.likeListContent .likeInfoArea span {
+    display: block; 
+    margin-bottom: 10px;
+}
+.likeListContent .likeInfoArea .proTitle {
+	font-size: 17px;
+}
+.likeListContent .likeInfoArea .proAddr {
+	font-size: 14px;
+	color: #808080;
+}
+.likeListContent .likeInfoArea .payment {
+	font-size: 18px;
+	font-weight: bold;
+}
+.likeListContent i{
+    color: #93b336;
+    font-size: 20px;
+}
+.likeListContent a {
+    text-decoration: none;
+}
+.likeListContent img {
+	width: 150px;
+    height: 100%;
+    object-fit: cover;
+    margin-right: 10px;
+	float:left;
+	object-fit: cover;
+    border-radius: 5px 0px 0px 5px;
+}
+.likeInfoAddr {
+	position: absolute;
+	bottom: 0px;
+	left: 150px;
+	width: calc(100% - 150px);
+    border-top: 1px solid #ededed;
+    padding: 5px 5px 5px 25px;
+    font-size: 14px;
+}
+.likeInfoAddr span{
+    color: gray;
+}
+
+.likeInfoArea span {
+    display: block; 
+    margin: auto;
+}
+.likeInfoArea .proTitle{
+    display: block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.likeHeart {
+	
+/*     bottom: 38px; */
+    padding: 5px;
+    position: relative;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+.likeHeart i {
+    color: red;
+    transition: 0.2s;
+}
+.likeHeart i:hover {
+	cursor: pointer;
+	color: #ffb7b7;
+}
+.likeHeart span {
+    color: lightgray;
+}
+
+section select {
+	border: 1px solid #d3d3d3;
+	padding: 6px;
+	border-radius: 10px;
+	font-size: 12px;
+	
+}
+section select:hover {
+	cursor: pointer;
+}

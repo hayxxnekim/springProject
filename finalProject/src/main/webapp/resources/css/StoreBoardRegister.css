@@ -1,0 +1,239 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.storeBanner {
+    width: 100%;
+    background-color: #effedf;
+    justify-content: center;
+    display: flex;
+}
+
+.innerDiv {
+	background-image: url(../image/storeImg.jpeg);
+ 	width: 1280px;
+ 	height: 350px;
+}
+
+.bodyContainer{
+    font-family: 'SUIT-Regular';
+    display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.formLine{
+	margin: 70px 0;
+	margin-bottom: 100px;
+	width: 720px;
+}
+
+.form{
+	margin-bottom: 40px;
+}
+
+.label{
+	margin-bottom: 15px;
+	font-weight: 800;
+	font-size: 18px;
+}
+
+.titleInput, .cmMenu, .fileInput{
+	width: 100%;
+	height: 48px;	
+	padding: 10px 15px;
+	border-radius: 5px;
+	border: solid 1px #e5e5e5;
+}
+.cmMenu:focus{
+	outline: none;
+}
+.contentInput{
+	width: 100%;
+	height: 256px;
+    padding: 15px;
+	border-radius: 5px;
+    resize: none;
+	border: solid 1px #e5e5e5;
+}
+.contentInput:focus{
+	outline: none;
+}
+
+/* 파일 */
+.fileForm{
+	display: flex;
+	justify-content: flex-start;
+	margin: 0;
+}
+.fileInput {
+    width: calc(100% - 120px); /* 버튼의 너비를 뺀 나머지만 차지하도록 함 */
+    box-sizing: border-box; /* width와 height에 padding과 border를 포함하도록 함 */
+    margin-right: -4px; /* 인라인 요소의 간격을 없애기 위해 마진을 음수로 설정 */
+	border-radius: 5px 0 0 5px;
+}
+.fileBtn{
+    width: 130px; 
+	height: 48px;
+	border-radius: 0 5px 5px 0;
+	border: none;
+	background-color: #c4c4c4;
+	color: white;
+    display: inline-block;
+    box-sizing: border-box; 
+    padding-top: 5px;
+}
+.fileZone{
+	border-radius: 0 0 5px 5px;
+	border-left: solid 1px #e5e5e5;
+	border-right: solid 1px #e5e5e5;
+	border-bottom: solid 1px #e5e5e5;
+}
+.imageUl{
+	padding: 20px;
+	margin: 0;
+}
+.imageLi{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;	
+	align-items: center;
+}
+.last-file{
+	margin: 0;
+}
+.imageCancelBtn{
+	border: none;
+    border-radius: 5px;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+    line-height: 30px;
+	background-color: #e5e5e5;
+	color: white;
+}
+.imageCancelBtn:hover{
+	background-color: #84a331;
+}
+.imgOk, .imgNo{
+	margin-left: 5px;
+    border-radius: 10px;
+    font-size: 13px;
+    padding: 4px 5px;
+    color: white;
+}
+.imgOk{
+	background-color: #84a331;
+}
+.imgNo{
+	background-color: indianred;
+}
+
+/* 취소, 등록 버튼 */
+.cmButtons{
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+}
+.cancelBtn{
+	width: 100px;
+    height: 60px;
+	font-size: 16px;
+	margin-right: 25px;
+	border-radius: 28px;
+	border: 2px solid #aaa;
+	background: none;
+	color: #aaa;
+}
+.cancelBtn:hover{
+    background-color: #aaa;
+    color: #fff;
+    transition: 0.2s;
+}
+.regBtn{
+/* 	width: 100px;
+	height: 55px;
+	padding: 18px 33px;
+	font-size: 14px;
+	border-radius: 38px;
+	border: 3px solid #84a331;
+	background: none;
+	color: #84a331; */
+	font-size: 16px;
+    width: 100px;
+    height: 60px;
+    border-radius: 28px;
+       border: 2px solid #84a331;
+      color: #84a331;
+      background-color: white;
+}
+.regBtn:hover:not(:disabled){
+	background-color: #84a331;
+	color: white;
+}
+
+.regBtn:disabled{
+	border: 2px solid indianred;
+	color: indianred;
+}
+/* 수정 css */
+.uploadedImgUl{
+	border-radius: 5px;
+	border: solid 1px #e5e5e5;
+	margin: 0;
+	padding: 20px;
+}
+
+.imgs{
+	margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+/* 메뉴 css */
+.imgLabel {
+	margin-top: 40px;
+}
+
+.menuZone{
+	border-radius: 0 0 5px 5px;
+	border-left: solid 1px #e5e5e5;
+	border-right: solid 1px #e5e5e5;
+	border-bottom: solid 1px #e5e5e5;
+	display: none;
+}
+
+.menuLi {
+    list-style-type: none;
+    margin: 0px 20px 20px 20px;
+}
+
+.menuLi:first-child {
+    padding-top: 20px;
+}
+
+.menuLi input {
+    border: solid 1px #e5e5e5;
+    border-radius: 5px;
+    height: 36px;
+    width: 160px;
+    padding: 10px 15px;
+    margin-left: 13px;
+    margin-right: 10px;
+}
+
+.delMenu {
+	margin-left: 4px;
+}
+
+.menu-x{
+	margin-left: 4px;
+}
+
+.menus {
+	margin-bottom: 40px;
+}

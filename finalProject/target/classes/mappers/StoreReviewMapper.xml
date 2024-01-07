@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.StoreReviewDAO">
+	<!-- 이메일 중복 허용, 리뷰 카테고리 수정 -->
+	<select id="getAllReviewCnt" parameterType="java.util.List" resultType="int">
+		<if test="emailList != null and emailList.size() > 0">
+			<foreach collection="emailList" item="email" separator="UNION ALL">
+			  select count(*) 
+			  from review
+			  where receiver_email  = #{email} and re_category = 'store'
+			</foreach>
+		</if>
+	</select>
+	
+	<select id="getReviewCnt" resultType="int">
+		select count(*) from review where receiver_email  = #{email} and re_category = 'store'
+	</select>
+</mapper>

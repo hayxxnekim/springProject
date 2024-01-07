@@ -1,0 +1,375 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+	#cmDetailContainer{
+	    font-family: 'SUIT-Regular';
+		width: 70%;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.boardLine{
+		border: 1px solid #e4e4e4;
+		border-radius: 5px;
+		width: 700px;
+		margin: 40px 0;
+	}
+	
+	.boardMenuNameDiv{
+		margin: 20px 24px 0 24px;	
+	}
+	.boardMenuName{
+	    background-color: #63a44a;
+	    padding: 6px 10px;
+	    border-radius: 22px;
+	    margin: 0;
+	    font-size: 12px;
+	    text-decoration: none;
+	    color: white;
+	}
+	.boardMenuName:hover{
+		text-decoration: underline;
+	}
+	/* 사용자 정보 라인 */
+	.top_line>*, .top_line div>*, .under_line>*, .under_line div>* {
+		display: inline;
+	}
+	.top_line{
+		height: 40px;
+		margin: 10px 24px 0 24px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.cmUserProfile{
+		border-radius: 100%;
+		width: 30px;
+		height: 30px;
+	}
+	.cmDetailNick{
+		margin: 0 3px;
+		font-size: 14px;
+	}
+	.boardRegAt{
+		padding-top: 5px;
+		font-size: 13px;
+	}
+	.cmWriterLocationIcon{
+		color: gray;
+	    margin-right: 1px;
+	}
+	.userlocation{
+		margin-left: 3px;
+		font-size: 13px;
+	}
+	.userDropdownMenu{
+		display: flex;
+		justify-content: center;
+	}
+	.boardUserBtn{
+		border: none;
+		background: none;
+		font-size: 15px;
+		color: gray;
+	}
+	.boardUserMenu{
+		z-index: 10;
+		position: absolute;
+		border: 1px solid #e4e4e4;
+    	border-radius: 5px;
+		background-color: #fff;
+		margin-top: 25px;
+    	margin-right: 75px;
+	    padding: 14px;
+	    text-align: center;
+	    width: 95px;
+		font-size: 14px;
+	}
+	.boardUserMenu li a{
+		color: black;
+		text-decoration: none;
+	}
+	.boardUserMenu li a:hover{
+		font-weight: 800;
+	}
+	.bi-chat-dots-fill{
+		margin: 0 3px;
+	}
+	.linkBtn{
+		color: gray;
+		border: none;
+		background: none;
+		font-size: 14px;
+	}
+	.chat:hover{
+		font-weight: 800;
+	}
+	
+	/* 제목, 내용, 사진 라인 */
+	.middle_line{
+		margin: 10px 24px 0 24px;
+	}
+	.cmTitle, .cmContent{
+		padding: 0 5px;
+		font-size: 15px;
+	}
+	.imgDiv{
+		display: flex;
+		justify-content: center;
+	}
+	.cm_images{
+		width: 650px;
+		margin-bottom: 10px;
+	}
+	
+	/* 좋아요, 댓글개수 라인 */
+	.under_line{
+		margin: 0 24px 10px 24px;
+		display: flex;
+		justify-content: space-between;
+		height: 40px;
+		font-size: 14px;
+	}
+	.under_line>*{
+		line-height: 40px;
+	}
+	.bi-heart, .bi-heart-fill{
+		cursor: pointer;
+		color: red;
+		margin-right: 2px;
+	}
+	
+	
+	/* 댓글 */
+	/* 작성 */
+	.commentWriteLine{
+		width: 700px;
+	}
+	.commentWrite{
+		margin-bottom: 40px;
+		padding: 20px;
+		border: 1px solid #e4e4e4;
+		border-radius: 5px;
+		position: relative;
+	}
+	.commentWrite2{
+		margin-bottom: 40px;
+		padding: 20px;
+		height: 50px;
+		border: 1px solid #d3d3d3;
+		border-radius: 5px;
+		line-height: 7px;
+		font-size: 14px;
+	}
+	.commentWrite>*{
+		display: block;
+	}
+	.cmtWriter{
+		margin-bottom: 5px;
+		font-weight: 800; 
+		font-size: 14px;
+	}
+	.cmtText{
+		font-size: 14px;
+	    width: 100%;
+		border: none;
+		resize: none;    
+		overflow: hidden;
+    	overflow-wrap: break-word;
+		margin-bottom: 25px;
+	}
+	.cmtText:focus{
+	  	outline: none;
+	}
+	.cmtPostBtn{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		border: none;
+	    background: none;
+	    margin: 0 15px 15px 0;
+		font-size: 14px;
+	}
+	/* 리스트 */
+	.commentLine{
+		width: 700px;
+		border: 1px solid #e4e4e4;
+		border-radius: 5px;
+		padding: 5px 15px;
+	}
+	.cmtUserLine>*{
+		display: inline;
+	}
+	.cmtUserLine{
+		display: flex;
+		justify-content: space-between;
+	}
+	.cmtNickName{
+		display: inline;
+		font-weight: 800;
+		margin: 0 3px;
+		font-size: 14px;
+	}
+	.boardWriterSpan{
+		background-color: #63a44aad;
+		color: white;
+		border-radius: 10px;
+		padding: 4px;
+		font-size: 11px;
+		margin-right: 3px;
+	}
+	.cmtDate{
+		padding-top: 5px;
+		font-size: 13px;
+	}
+	.cmtLi{
+		margin: 0 15px;
+		padding: 18px 0 17px 0;
+		border-bottom: 0.5px solid #e4e4e4;
+		font-size: 15px;
+	}
+	.cmtLi2{
+		margin: 0 15px;
+		padding: 18px 0 17px 40px;
+		border-bottom: 0.5px solid #e4e4e4;
+	}
+	.cmtUserMenu{
+		z-index: 10;
+		position: absolute;
+		border: 1px solid #e4e4e4;
+    	border-radius: 5px;
+		background-color: #fff;
+	    margin-left: -100px;
+	    margin-top: 25px;
+	    padding: 15px;
+	    text-align: center;
+	    width: 95px;
+	    font-size: 14px;
+	}
+	.cmtUserMenu a{
+		color: black;
+		text-decoration: none;
+	}
+	.cmtUserMenu a:hover{
+		font-weight: 800;
+	}
+	.cmtContentDiv{
+
+	}
+	.cmtContentLine{
+		margin-left: 37px;
+		font-size: 15px;
+		resize: none;
+		border: none;
+		padding: 0;
+		font-size: 14px;
+		background: none;
+		overflow: hidden;
+		width: 570px;
+	}
+	.cmtContentLine:focus{
+		outline: none;
+	}
+	
+	/* 대댓글 */
+	/* 작성 */
+	.reCmtBtn{
+		border: none;
+		background: none;
+		padding: 5px 0 0 0;
+		margin-left: 37px;
+		font-size: 14px;
+	}
+	.reCmtBtn:hover{
+		font-weight: 800;
+	}
+	.reCommentWrite{
+		margin: 10px 0 10px 33px;
+		padding: 20px;
+		border: 1px solid #e4e4e4;
+		border-radius: 5px;
+		position: relative;
+	}
+	.reText{
+		margin-top: 5px;
+	}
+	.cmtCancelBtn{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		border: none;
+	    background: none;
+		margin: 0 60px 15px 0;
+		font-size: 14px;
+	}
+	/* 리스트 */
+	.parentUl, .repliesUl{
+		padding: 0;
+		margin: 0;
+	}
+	.last-comment{
+		border-bottom: none;
+	}
+	.last-comment li:last-child{
+		border-bottom: none;
+		padding-bottom: 0px;
+	}
+	
+	/* 바닥 버튼 라인 */
+	.bottomBtn{
+		margin: 15px 0 20px 0;
+		width: 700px;
+		display: flex;
+		justify-content: flex-end;
+	}
+	.listBtn{
+		margin-right: 8px;
+	}
+	.listBtn, .topBtn{
+		border: none;
+		border-radius: 5px;
+		background-color: #63a44a;
+		padding: 8px 13px;
+		color: white;
+		font-size: 14px;
+	}
+	.cmContent{
+		border: none;
+		resize: none;
+		margin: 5px 0;
+		width: 100%;
+	}
+	.cmContent:focus{
+		outline: none;
+	}
+
+	.noComment{
+		margin: 10px 0;
+		font-size: 14px;
+	}
+
+	/* 모달창 */
+	#cmtModBtn{
+		background-color: #84a331;
+		border: none;
+		font-size: 14px;
+    	width: 52px;
+	}
+
+	.cmtModInput{
+		width: 465px;
+		height: 40px;
+		padding-left: 10px;
+		border: 1px solid #d3d3d3;
+		border-radius: 5px;
+	}
+
+
+	.userRight a, .userLeft a{
+		color: black;
+		text-decoration: none;
+	}

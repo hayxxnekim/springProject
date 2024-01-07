@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.avo.www.repository.CSCmtDAO">
+	<insert id="insert">
+		insert into cs_cmt(cmt_bno, cmt_email, cmt_content)
+		values(#{cmtBno}, #{cmtEmail}, #{cmtContent})
+	</insert>
+	
+	<select id="getAnswer" resultType="com.avo.www.domain.CSCmtVO">
+		select * from cs_cmt where cmt_bno = #{cmtBno}
+	</select>
+</mapper>
